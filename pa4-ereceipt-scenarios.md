@@ -255,8 +255,8 @@ The diagram below is the single picture to remember. Read it top-to-bottom: the 
 **Note**: Color legend:
 - Blue: Deferred Invoice
 - Green: Upfront Invoice
-- White: Applicable to both scenarios
 - Orange: No Invoice
+- White: Applicable to all three scenarios
 
 ```mermaid
 sequenceDiagram
