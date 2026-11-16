@@ -156,10 +156,12 @@ This section names the concrete artefacts that flow into and out of the workflow
 There are two different processes covered:
 - Deferred invoice: payment first → invoice & receipt afterwards
 - Upfront invoice: invoice first → payment → receipt afterwards
+- No invoice (retail): payment first → receipt afterwards, no invoice (Scenario 1.3, repository addition)
 
 The MVP and MVP+ cover the following constellations:
 - Deferred invoice with card payment
 - Upfront invoice with IBAN payment
+- No invoice with card payment (Scenario 1.3, repository addition)
 
 Note: Deferred invoice with IBAN payment and upfront invoice with card payment are not part of the MVP or MVP+.
 
@@ -212,6 +214,7 @@ Steps 2–4 each have branches depending on whether the payment is by card or by
 The MVP and MVP+ cover the following constellations:
 - Deferred invoice with card payment
 - Upfront invoice with IBAN payment
+- No invoice with card payment (Scenario 1.3, repository addition)
 
 The diagram below is the single picture to remember. Read it top-to-bottom: the eInvoice arrives, the Authorised Person starts the process at the Bank, and each subsequent block (Steps 1–6) lines up with one of the detail subsections that follow. `alt … else … end` blocks represent the card-vs-IBAN branches.
 
@@ -219,6 +222,7 @@ The diagram below is the single picture to remember. Read it top-to-bottom: the 
 - Blue – Deferred Invoice
 - Green – Upfront Invoice
 - White – Applicable to both scenarios
+- Orange – No Invoice (Scenario 1.3, repository addition)
 
 ```mermaid
 sequenceDiagram
@@ -246,6 +250,11 @@ participant PSP
         note over Buyer : Buyer company receives an eInvoice<br/>in its Business Wallet<br/>(direct or indirect)
         AuthPerson ->>+ Buyer : Select "Start Payment process" service
        end 
+    else **No Invoice (retail)**
+       rect rgb(255, 240, 220)
+        note over Seller : Seller requests payment at checkout<br/>(web shop or POS)
+        Seller ->> EUDI_Wallet : payment request (QR code or dynamic link)
+       end
     end 
     
     note over Seller, BuyerBank  : Step 1: Legal Entity Selection
@@ -258,6 +267,9 @@ participant PSP
         AuthPerson <<->> EUDI_Wallet : scan the code
         EUDI_Wallet <<->> PSP : initiate the payment
         end
+       rect rgb(255, 240, 220)
+        EUDI_Wallet ->> PSP : present PoA (card scope, limit) [No Invoice]
+       end
     else **Account-based payment (IBAN)**
        rect rgb(220, 255, 220)
         AuthPerson <<->> Buyer : initiate the IBAN payment transfer
@@ -297,6 +309,9 @@ participant PSP
     BuyerBank <<->> SellerBank : payment settlement
     BuyerBank <<->> Buyer : payment / settlement confirmation
     SellerBank <<->> Seller : payment / settlement notication
+    rect rgb(255, 240, 220)
+    BuyerBank ->> Buyer : card statement [No Invoice]
+    end
 
     note over SellerBank, BuyerBank  : Step 6: Post Notification   
     alt **Deferred Invoice**
@@ -309,6 +324,10 @@ participant PSP
      
         Buyer <<->> Seller : eReceipt issuing (direct or indirect)
         end 
+    else **No Invoice (retail)**
+        rect rgb(255, 240, 220)
+        Seller <<->> Buyer : eReceipt issuing (secure channel), no invoice
+        end
     end 
 ```
 
