@@ -18,8 +18,6 @@ Editors:
 - Nikos Triantafyllou, UAegean, Greece
 - Teemu Varpanen, ReceiptHero, Finland
 
-Based on the upstream WP3 PA4 workflow document v1.0 final (2026-06-19), with Scenario 1.3 (No invoice with card payment, retail) added as marked repository additions.
-
 ## Contents
 
 - [1. Purpose](#1-purpose)
@@ -192,12 +190,12 @@ This section names the concrete artefacts that flow into and out of the workflow
 There are two different processes covered:
 - Deferred invoice: payment first → invoice & receipt afterwards
 - Upfront invoice: invoice first → payment → receipt afterwards
-- No invoice (retail): payment first → receipt afterwards, no invoice (Scenario 1.3, repository addition)
+- No invoice (retail): payment first → receipt afterwards, no invoice
 
 The MVP and MVP+ cover the following constellations:
 - Deferred invoice with card payment
 - Upfront invoice with IBAN payment
-- No invoice with card payment (Scenario 1.3, repository addition)
+- No invoice with card payment
 
 Note: Deferred invoice with IBAN payment and upfront invoice with card payment are not part of the MVP or MVP+.
 
@@ -221,8 +219,6 @@ Note: Deferred invoice with IBAN payment and upfront invoice with card payment a
     - eReceipt attestation issued to Buyer's EBW
 
 ### 7.3 No Invoice (retail)
-
-Repository addition for Scenario 1.3; not part of the upstream v1.0 document.
 
 - **Trigger**: the Seller requests payment at checkout (QR code or dynamic link) from a web shop or POS.
 - **Inputs**:
@@ -250,7 +246,7 @@ Steps 2–4 each have branches depending on whether the payment is by card or by
 The MVP and MVP+ cover the following constellations:
 - Deferred invoice with card payment
 - Upfront invoice with IBAN payment
-- No invoice with card payment (Scenario 1.3, repository addition)
+- No invoice with card payment
 
 ### 8.1 Overview
 
@@ -260,7 +256,7 @@ The diagram below is the single picture to remember. Read it top-to-bottom: the 
 - Blue – Deferred Invoice
 - Green – Upfront Invoice
 - White – Applicable to both scenarios
-- Orange – No Invoice (Scenario 1.3, repository addition)
+- Orange – No Invoice
 
 ```mermaid
 sequenceDiagram
@@ -453,8 +449,6 @@ The MVP is still a draft, and several specification points are deliberately left
 
 - [ ] Confirm exact contents of the "minimum attestation set" for Seller vs Buyer EBW.
 - [ ] Define the trusted-list source used by the RP wallet for issuer identification.
-- [ ] Decide whether eReceipt issuance is always direct (Seller → Buyer) or whether an indirect channel is required in the MVP.
-- [ ] Define error / retry behaviour when SCA fails mid-flow.
 
 ## 11. References
 

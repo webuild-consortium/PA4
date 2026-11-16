@@ -2,7 +2,7 @@
 
 PA4 defines how a buyer company pays a received eInvoice and obtains an eReceipt attestation in its European Business Wallet (EBW). Payment runs over a card rail (PSP) or an IBAN rail (Buyer Bank). Strong Customer Authentication (SCA) is performed by the company's Authorised Person through their EUDI Wallet.
 
-Normative source: [wp3-technology-standards / sequence-diagrams / PA4](https://github.com/webuild-consortium/wp3-technology-standards/tree/main/sequence-diagrams/PA4), v1.0 final, 2026-06-19. This README gives an overview and maps the specification to the scenario folders in this repository. The actual sequences and workflows are in [pa4-ereceipt-scenarios.md](https://github.com/webuild-consortium/PA4/blob/docs/pa4-scenario-readme/pa4-ereceipt-scenarios.md).
+Base document: [pa4-ereceipt-scenarios.md](pa4-ereceipt-scenarios.md) holds the actual sequences and workflows. It originates from the WP3 document [wp3-technology-standards / sequence-diagrams / PA4](https://github.com/webuild-consortium/wp3-technology-standards/tree/main/sequence-diagrams/PA4). This README gives an overview and maps the scenarios to their folders.
 
 ## Scenarios
 
@@ -11,8 +11,6 @@ Normative source: [wp3-technology-standards / sequence-diagrams / PA4](https://g
 | [1.1 Deferred invoice, card or IBAN payment](scenario-1.1/) | Payment first, then invoice and receipt | Card via PSP, or IBAN via Buyer Bank | Card: SCA in the EUDI Wallet, PoA checked by the PSP. IBAN: bank token check, SR + PoA for high-value transactions |
 | [1.2 Upfront invoice, IBAN payment](scenario-1.2/)          | Invoice first, then payment and receipt | IBAN via Buyer Bank                  | Bank token check; SR + PoA for high-value transactions                                                             |
 | [1.3 No invoice, card payment (retail)](scenario-1.3/)      | No invoice; eReceipt after settlement   | Card via PSP                         | SCA in the EUDI Wallet; PoA (card scope, limit) presented to the PSP                                               |
-
-Scenarios 1.1 and 1.2 follow the upstream specification. Scenario 1.3 is a retail profile not covered by it.
 
 ## Actors
 
