@@ -5,7 +5,6 @@
 | ------------ | ------------------------------- |
 | Workflow ID  | PA4                             |
 | Version      | 1.1                             |
-| Status       | Draft                           |
 | Owner        | PA4 / Florin                    |
 | Last updated | 2026-11-16                      |
 | Related      | PA2, PA3, BU1-KYS, BU1-KYC, SC5 |
