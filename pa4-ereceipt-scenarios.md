@@ -380,38 +380,45 @@ An employee pays at a web shop or POS with the corporate card through their EUDI
 
 ```mermaid
 sequenceDiagram
-  box Seller
+  box Seller side
     participant Shop as Seller retail front-end
     participant SellerBW as Seller Business Wallet
     participant SellerBank as Seller Bank (acquirer)
   end
-  box Buyer
-    actor Employee as Employee (cardholder)
+  box Buyer side
+    actor Employee as Employee (Authorised Person)
     participant EUDI as EUDI Wallet
     participant BuyerBW as Buyer Business Wallet
     participant BuyerBank as Buyer Bank (card issuer)
   end
-  participant PSP as PSP (card payments)
+  participant PSP
 
-  note over Shop, PSP: 1. Payment request at checkout
-  Shop ->> EUDI: 1 Payment request (QR code or dynamic link)
+  note over Shop, PSP: Step 0: Trigger (checkout at web shop or POS)
+  Shop ->> EUDI: Payment request (QR code or dynamic link)
 
-  note over Shop, PSP: 2. Pay with the corporate card
-  Employee ->> EUDI: 2a Scan the payment code
-  EUDI ->> PSP: 2b Pay with corporate card
-  EUDI ->> PSP: 2c Present PoA (card scope, limit)
+  note over Shop, PSP: Step 1: Legal entity selection (implied by the PoA, no separate step)
 
-  note over Shop, PSP: 3. SCA through the EUDI Wallet
-  PSP ->> EUDI: 3a Request SCA
-  Employee ->> EUDI: 3b Confirm SCA (PIN or biometric)
-  EUDI ->> PSP: 3c SCA response
+  note over Shop, PSP: Step 2: Payment initiation (card)
+  Employee ->> EUDI: Scan the payment code
+  EUDI ->> PSP: Pay with corporate card
+  EUDI ->> PSP: Present PoA (card scope, limit)
 
-  note over Shop, PSP: 4. Settlement, then issuance over the secure channel
-  PSP ->> BuyerBank: 4a Authorise and settle
-  BuyerBank ->> SellerBank: 4b Settlement
-  BuyerBank ->> BuyerBW: 4c Card statement
-  SellerBank ->> SellerBW: 4d Notification
-  SellerBW -->> BuyerBW: 4e eReceipt
+  note over Shop, PSP: Step 3: Payment authorisation (SCA)
+  PSP ->> EUDI: Request SCA
+  Employee ->> EUDI: Confirm SCA (PIN or biometric)
+  EUDI -->> PSP: SCA response
+
+  note over Shop, PSP: Step 4: Legal entity authorisation
+  PSP ->> PSP: Check PoA (card scope, limit)
+  PSP ->> BuyerBank: Authorise and settle
+
+  note over Shop, PSP: Step 5: Settlement and notification
+  BuyerBank <<->> SellerBank: Payment settlement
+  BuyerBank -->> BuyerBW: Card statement
+  SellerBank -->> SellerBW: Settlement notification
+
+  note over Shop, PSP: Step 6: eReceipt
+  SellerBW -->> BuyerBW: Issue eReceipt attestation (secure channel)
 ```
 
 ## 9. Acceptance Criteria
