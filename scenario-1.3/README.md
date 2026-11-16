@@ -1,8 +1,8 @@
 # Scenario 1.3: No invoice, card payment (retail)
 
-A company employee buys at a web shop or point of sale and pays with the corporate card through their EUDI Wallet. No invoice exists before payment. The PSP checks the employee's authority through a Power of Attorney (PoA) with card scope and limit, and performs SCA through the EUDI Wallet. No invoice is issued at any point. After settlement the Seller issues the eReceipt to the Buyer Business Wallet over the secure channel between the two business wallets. Overview and shared context: [repository README](../README.md).
+A company employee buys at a web shop or point of sale and pays with the corporate card through their EUDI Wallet. The PSP checks the employee's authority through a Power of Attorney (PoA) with card scope and limit, and performs SCA through the EUDI Wallet. No invoice is issued at any point. After settlement the Seller issues the eReceipt to the Buyer Business Wallet over the secure channel between the two business wallets. Overview and shared context: [repository README](../README.md).
 
-This scenario is not part of the upstream PA4 v1.0 specification. It is the retail profile of the deferred-invoice flow in [Scenario 1.1](../scenario-1.1/), restricted to the card rail.
+This scenario is not part of the upstream PA4 v1.0 specification. It follows the payment-first order of [Scenario 1.1](../scenario-1.1/), restricted to the card rail and without any invoice.
 
 ## Actors
 
