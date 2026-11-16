@@ -182,6 +182,20 @@ Note: Deferred invoice with IBAN payment and upfront invoice with card payment a
     - eInvoice (in Buyer's EBW)
     - eReceipt attestation issued to Buyer's EBW
 
+### 7.3 No Invoice (retail)
+
+Repository addition for Scenario 1.3; not part of the upstream v1.0 document. Detailed description in [scenario-1.3/README.md](scenario-1.3/README.md).
+
+- **Trigger**: the Seller requests payment at checkout (QR code or dynamic link) from a web shop or POS.
+- **Inputs**:
+    - Employee's PID, SCA attestation and PoA (card scope, limit) in the EUDI Wallet
+    - Corporate card issued by the Buyer Bank
+- **Outputs**:
+    - Settled payment (card)
+    - Card statement in Buyer's EBW
+    - eReceipt attestation issued to Buyer's EBW
+    - No eInvoice is issued
+
 ## 8. End-to-end Scenario
 This is the heart of the document. The flow is broken into six steps that always run in the same order:
 * (1) pick the legal entity
@@ -357,6 +371,48 @@ The eReceipt is the persistent, verifiable proof that the invoice was paid, and 
 - **Goal**: Deliver an eReceipt attestation to the Buyer's EBW.
 - **Flow**: Buyer obtains the eReceipt from Seller (direct or indirect).
 - **Post-condition**: eReceipt attestation is stored in Buyer's EBW. No attestation is issued to the Authorised Person's EUDI Wallet.
+
+### 8.8 Scenario 1.3: No invoice with card payment (retail)
+
+Repository addition; not part of the upstream v1.0 document. Detailed description in [scenario-1.3/README.md](scenario-1.3/README.md).
+
+An employee pays at a web shop or POS with the corporate card through their EUDI Wallet. The PSP checks the employee's authority through a PoA with card scope and limit and performs SCA through the EUDI Wallet. After settlement the Buyer Bank sends a card statement to the Buyer's EBW and the Seller issues the eReceipt to the Buyer's EBW over the secure channel between the business wallets. No invoice is issued.
+
+```mermaid
+sequenceDiagram
+  box Seller
+    participant Shop as Seller retail front-end
+    participant SellerBW as Seller Business Wallet
+    participant SellerBank as Seller Bank (acquirer)
+  end
+  box Buyer
+    actor Employee as Employee (cardholder)
+    participant EUDI as EUDI Wallet
+    participant BuyerBW as Buyer Business Wallet
+    participant BuyerBank as Buyer Bank (card issuer)
+  end
+  participant PSP as PSP (card payments)
+
+  note over Shop, PSP: 1. Payment request at checkout
+  Shop ->> EUDI: 1 Payment request (QR code or dynamic link)
+
+  note over Shop, PSP: 2. Pay with the corporate card
+  Employee ->> EUDI: 2a Scan the payment code
+  EUDI ->> PSP: 2b Pay with corporate card
+  EUDI ->> PSP: 2c Present PoA (card scope, limit)
+
+  note over Shop, PSP: 3. SCA through the EUDI Wallet
+  PSP ->> EUDI: 3a Request SCA
+  Employee ->> EUDI: 3b Confirm SCA (PIN or biometric)
+  EUDI ->> PSP: 3c SCA response
+
+  note over Shop, PSP: 4. Settlement, then issuance over the secure channel
+  PSP ->> BuyerBank: 4a Authorise and settle
+  BuyerBank ->> SellerBank: 4b Settlement
+  BuyerBank ->> BuyerBW: 4c Card statement
+  SellerBank ->> SellerBW: 4d Notification
+  SellerBW -->> BuyerBW: 4e eReceipt
+```
 
 ## 9. Acceptance Criteria
 
