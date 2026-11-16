@@ -4,10 +4,10 @@
 | Field        | Value                           |
 | ------------ | ------------------------------- |
 | Workflow ID  | PA4                             |
-| Version      | 1.0 (final)                     |
-| Status       | Final                           |
+| Version      | 1.1 (draft)                     |
+| Status       | Draft                           |
 | Owner        | PA4 / Florin                    |
-| Last updated | 2026-06-19                      |
+| Last updated | 2026-11-16                      |
 | Related      | PA2, PA3, BU1-KYS, BU1-KYC, SC5 |
 
 Editors:
@@ -17,6 +17,43 @@ Editors:
 - Miriam Weber, Procivis, Switzerland
 - Nikos Triantafyllou, UAegean, Greece
 - Teemu Varpanen, ReceiptHero, Finland
+
+Based on the upstream WP3 PA4 workflow document v1.0 final (2026-06-19), with Scenario 1.3 (No invoice with card payment, retail) added as marked repository additions.
+
+## Contents
+
+- [1. Purpose](#1-purpose)
+- [2. Scope](#2-scope)
+    - [2.1 In scope](#21-in-scope)
+    - [2.2 Out of scope](#22-out-of-scope)
+- [3. Actors & Systems](#3-actors--systems)
+- [4. Glossary](#4-glossary)
+- [5. Assumptions & Restrictions](#5-assumptions--restrictions)
+    - [5.1 Seller (Holder)](#51-seller-holder)
+    - [5.2 Buyer (Relying Party)](#52-buyer-relying-party)
+    - [5.3 Authorised Person](#53-authorised-person)
+    - [5.4 Holder Business Wallet](#54-holder-business-wallet)
+    - [5.5 Relying-Party Business Wallet](#55-relying-party-business-wallet)
+    - [5.6 General](#56-general)
+- [6. Pre-requisites](#6-pre-requisites)
+    - [6.1 Seller pre-requisites](#61-seller-pre-requisites)
+    - [6.2 Buyer pre-requisites](#62-buyer-pre-requisites)
+- [7. Inputs / Outputs / Triggers](#7-inputs--outputs--triggers)
+    - [7.1 Deferred Invoice](#71-deferred-invoice)
+    - [7.2 Upfront  Invoice](#72-upfront--invoice)
+    - [7.3 No Invoice (retail)](#73-no-invoice-retail)
+- [8. End-to-end Scenario](#8-end-to-end-scenario)
+    - [8.1 Overview](#81-overview)
+    - [8.2 Step 1: Legal Entity Selection](#82-step-1-legal-entity-selection)
+    - [8.3 Step 2: Payment Initiation](#83-step-2-payment-initiation)
+    - [8.4 Step 3: Payment Authorization](#84-step-3-payment-authorization)
+    - [8.5 Step 4: Legal Entity Payment Authorization](#85-step-4-legal-entity-payment-authorization)
+    - [8.6 Step 5: Payment Settlement](#86-step-5-payment-settlement)
+    - [8.7 Step 6: eReceipt Issuance](#87-step-6-ereceipt-issuance)
+    - [8.8 Scenario 1.3: No invoice with card payment (retail)](#88-scenario-13-no-invoice-with-card-payment-retail)
+- [9. Acceptance Criteria](#9-acceptance-criteria)
+- [10. Open Issues / Decisions Pending](#10-open-issues--decisions-pending)
+- [11. References](#11-references)
 
 > **How to read this document.** Sections 1–4 set the stage (what this workflow is, what it covers, who participates, and what the acronyms mean). Sections 5–7 capture the assumptions, prerequisites, and data inputs/outputs that frame the MVP. Section 8 walks through the end-to-end flow, first as a single overview diagram, then step by step. Sections 9–11 close the loop with acceptance criteria, open questions, and references. A new reader can skim §1 → §3 → §8.1 to get the gist in two minutes.
 
@@ -215,6 +252,8 @@ The MVP and MVP+ cover the following constellations:
 - Deferred invoice with card payment
 - Upfront invoice with IBAN payment
 - No invoice with card payment (Scenario 1.3, repository addition)
+
+### 8.1 Overview
 
 The diagram below is the single picture to remember. Read it top-to-bottom: the eInvoice arrives, the Authorised Person starts the process at the Bank, and each subsequent block (Steps 1–6) lines up with one of the detail subsections that follow. `alt … else … end` blocks represent the card-vs-IBAN branches.
 
