@@ -52,7 +52,7 @@ Editors:
 - [10. Open Issues / Decisions Pending](#10-open-issues--decisions-pending)
 - [11. References](#11-references)
 
-> **How to read this document.** Sections 1–4 set the stage (what this workflow is, what it covers, who participates, and what the acronyms mean). Sections 5–7 capture the assumptions, prerequisites, and data inputs/outputs that frame the MVP. Section 8 walks through the end-to-end flow, first as a single overview diagram, then step by step. Sections 9–11 close the loop with acceptance criteria, open questions, and references. A new reader can skim §1 → §3 → §8.1 to get the gist in two minutes.
+> **How to read this document.** Sections 1 to 4 set the stage (what this workflow is, what it covers, who participates, and what the acronyms mean). Sections 5 to 7 capture the assumptions, prerequisites, and data inputs/outputs that frame the MVP. Section 8 walks through the end-to-end flow, first as a single overview diagram, then step by step. Sections 9 to 11 close the loop with acceptance criteria, open questions, and references. A new reader can skim §1 → §3 → §8.1 to get the gist in two minutes.
 
 ## 1. Purpose
 
@@ -104,20 +104,20 @@ The table below introduces every participant who appears in the diagrams further
 
 This workflow sits at the intersection of EU digital-identity regulation, banking, and e-invoicing, so the vocabulary is dense. Use this glossary as a quick lookup; the most load-bearing terms in the diagrams are **EBW** (the company's wallet), **EUDI Wallet** (the person's wallet), **SCA** (how the person proves they are present), and **SR / PoA** (how the person proves they may act for the company).
 
-- **EBW** – European Business Wallet
-- **EBWOID** – EBW Organisational Identifier
-- **EUDI Wallet** – European Digital Identity Wallet (held by natural person)
-- **PID** – Personal Identification Data credential
-- **SCA** – Strong Customer Authentication
-- **PoA** – Power of Attorney attestation
-- **SR** – Signatory Rights attestation
-- **RP** – Relying Party
-- **KYS / KYC** – Know Your Supplier / Know Your Customer
-- **eInvoice** – Electronic invoice credential delivered to Business Wallet
-- **eReceipt** – Electronic receipt attestation issued after settlement
-- **PSP** – Payment Service Provider
-- **LOTL** – List of Trust Lists (mutual-auth check, disabled in MVP)
-- **Authorised Person** – the natural person empowered to act on behalf of the legal person (Buyer), in the sense of eIDAS 2 / EBW regulation; their authority is evidenced by the company's Signatory Rights (SR) list together with the Power of Attorney (PoA) attestation held in the Business Wallet. In PSD2 / payments terminology, the same role is also known as the **Authorised User** of the corporate account.
+- **EBW**: European Business Wallet
+- **EBWOID**: EBW Organisational Identifier
+- **EUDI Wallet**: European Digital Identity Wallet (held by natural person)
+- **PID**: Personal Identification Data credential
+- **SCA**: Strong Customer Authentication
+- **PoA**: Power of Attorney attestation
+- **SR**: Signatory Rights attestation
+- **RP**: Relying Party
+- **KYS / KYC**: Know Your Supplier / Know Your Customer
+- **eInvoice**: Electronic invoice credential delivered to Business Wallet
+- **eReceipt**: Electronic receipt attestation issued after settlement
+- **PSP**: Payment Service Provider
+- **LOTL**: List of Trust Lists (mutual-auth check, disabled in MVP)
+- **Authorised Person**: the natural person empowered to act on behalf of the legal person (Buyer), in the sense of eIDAS 2 / EBW regulation; their authority is evidenced by the company's Signatory Rights (SR) list together with the Power of Attorney (PoA) attestation held in the Business Wallet. In PSD2 / payments terminology, the same role is also known as the **Authorised User** of the corporate account.
 
 ## 5. Assumptions & Restrictions
 
@@ -126,13 +126,13 @@ The MVP cannot exercise the full target architecture, so we pin several variable
 ### 5.1 Seller (Holder)
 
 - Holds an active EBW with only the minimum set of attestations required to execute PA4.
-- Not required to complete Home-Bank onboarding (PA3) or KYS onboarding (BU1 – KYS).
+- Not required to complete Home-Bank onboarding (PA3) or KYS onboarding (BU1-KYS).
 - Classified exclusively as low- or medium-risk.
 
 ### 5.2 Buyer (Relying Party)
 
 - Holds an active EBW with only the minimum set of attestations required to execute PA4.
-- Not required to complete Home-Bank onboarding (PA3) or KYC onboarding (BU1 – KYC).
+- Not required to complete Home-Bank onboarding (PA3) or KYC onboarding (BU1-KYC).
 - Onboarding of the Authorised  is performed as part of end-customer onboarding (not as a separate business-representative onboarding under PA2).
 - Business Wallet is assumed to contain valid Signatory Rights (SR) attestations together with the corresponding PoA for the Authorised Representative.
 - For IBAN-based transactions, the IBAN information provided in the eInvoice is assumed trusted (IBAN validation is out of scope, see §2.2). IBAN validation is via the trusted bank issuer.
@@ -158,7 +158,7 @@ The MVP cannot exercise the full target architecture, so we pin several variable
 
 - Attestation verification for each attestation is limited to:
     - Cryptographic validation (Section 4.2.1).
-    - Issuer identification against an internal trusted list (Sections 4.2.2 – 4.3.3).
+    - Issuer identification against an internal trusted list (Sections 4.2.2 to 4.3.3).
 
 ### 5.6 General
 
@@ -239,7 +239,7 @@ This is the heart of the document. The flow is broken into six steps that always
 * → (5) settle
 * → (6) issue the eReceipt.
 
-Steps 2–4 each have branches depending on whether the payment is by card or by IBAN (and, for IBAN, whether it is a standard or high-value transaction).
+Steps 2 to 4 each have branches depending on whether the payment is by card or by IBAN (and, for IBAN, whether it is a standard or high-value transaction).
 - §8.1 shows everything at a glance;
 - §8.2 to §8.7 zoom into each step with goal, branches, pre/post-conditions, and error paths.
 
@@ -250,13 +250,13 @@ The MVP and MVP+ cover the following constellations:
 
 ### 8.1 Overview
 
-The diagram below is the single picture to remember. Read it top-to-bottom: the eInvoice arrives, the Authorised Person starts the process at the Bank, and each subsequent block (Steps 1–6) lines up with one of the detail subsections that follow. `alt … else … end` blocks represent the card-vs-IBAN branches.
+The diagram below is the single picture to remember. Read it top-to-bottom: the eInvoice arrives, the Authorised Person starts the process at the Bank, and each subsequent block (Steps 1 to 6) lines up with one of the detail subsections that follow. `alt … else … end` blocks represent the card-vs-IBAN branches.
 
 **Note**: Color legend:
-- Blue – Deferred Invoice
-- Green – Upfront Invoice
-- White – Applicable to both scenarios
-- Orange – No Invoice
+- Blue: Deferred Invoice
+- Green: Upfront Invoice
+- White: Applicable to both scenarios
+- Orange: No Invoice
 
 ```mermaid
 sequenceDiagram
@@ -407,8 +407,8 @@ Step 3 proved _who_ is approving; Step 4 proves _they are allowed to_ approve on
 - **Goal**: Confirm the Authorised Person has authority for the legal entity to execute this payment.
 - **Branches**:
     - **Card**: PSP verifies Authorised Person authorization against Buyer (PoA scope: card, limit: x), then asks Bank to settle.
-    - **IBAN – high tx**: Bank verifies Authorised Person authorization against Buyer (SR + PoA, scope: tx, limit: x).
-    - **IBAN – standard**: Bank verifies token authorization against Buyer and initiates settlement.
+    - **IBAN high tx**: Bank verifies Authorised Person authorization against Buyer (SR + PoA, scope: tx, limit: x).
+    - **IBAN standard**: Bank verifies token authorization against Buyer and initiates settlement.
     - **No Invoice (retail, card)**: PSP verifies the PoA presented by EUDI Wallet in Step 2 (scope: card, limit: x), then asks Bank to settle.
 - **Post-condition**: Settlement is authorised.
 - **Errors / fallbacks**: Missing or insufficient SR/PoA → settlement is not initiated.
@@ -454,8 +454,8 @@ The MVP is still a draft, and several specification points are deliberately left
 
 Pointers to the sibling workflows and specification sections that PA4 depends on or defers to. When a topic was excluded in §2.2, this is usually where the responsibility moves.
 
-- PA2 – Business-representative onboarding (SCA attestation issuance).
-- PA3 – Home-Bank onboarding.
-- BU1 – KYS / KYC processes.
-- SC5 – Invoice delivery channel.
-- RP wallet verification, Sections 4.2.1, 4.2.2 – 4.3.3.
+- PA2: Business-representative onboarding (SCA attestation issuance).
+- PA3: Home-Bank onboarding.
+- BU1 KYS / KYC processes.
+- SC5: Invoice delivery channel.
+- RP wallet verification, Sections 4.2.1, 4.2.2 to 4.3.3.
