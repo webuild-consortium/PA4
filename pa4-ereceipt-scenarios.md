@@ -223,7 +223,7 @@ Note: Deferred invoice with IBAN payment and upfront invoice with card payment a
 
 ### 7.3 No Invoice (retail)
 
-Repository addition for Scenario 1.3; not part of the upstream v1.0 document. Detailed description in [scenario-1.3/README.md](scenario-1.3/README.md).
+Repository addition for Scenario 1.3; not part of the upstream v1.0 document.
 
 - **Trigger**: the Seller requests payment at checkout (QR code or dynamic link) from a web shop or POS.
 - **Inputs**:
@@ -432,7 +432,7 @@ The eReceipt is the persistent, verifiable proof that the invoice was paid, and 
 
 ### 8.8 Scenario 1.3: No invoice with card payment (retail)
 
-Repository addition; not part of the upstream v1.0 document. Detailed description in [scenario-1.3/README.md](scenario-1.3/README.md).
+Repository addition; not part of the upstream v1.0 document.
 
 An employee pays at a web shop or POS with the corporate card through their EUDI Wallet. The PSP checks the employee's authority through a PoA with card scope and limit and performs SCA through the EUDI Wallet. After settlement the Buyer Bank sends a card statement to the Buyer's EBW and the Seller issues the eReceipt to the Buyer's EBW over the secure channel between the business wallets. No invoice is issued.
 
