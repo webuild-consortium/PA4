@@ -6,13 +6,13 @@ Normative source: [wp3-technology-standards / sequence-diagrams / PA4](https://g
 
 ## Scenarios
 
-| Scenario                                  | Folder                         | Invoice process                         | Payment rail                         | Person and mandate checks                                                                                          |
-| ----------------------------------------- | ------------------------------ | --------------------------------------- | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
-| 1. Deferred invoice, card or IBAN payment | [`scenario-01/`](scenario-01/) | Payment first, then invoice and receipt | Card via PSP, or IBAN via Buyer Bank | Card: SCA in the EUDI Wallet, PoA checked by the PSP. IBAN: bank token check, SR + PoA for high-value transactions |
-| 2. Upfront invoice, IBAN payment          | [`scenario-02/`](scenario-02/) | Invoice first, then payment and receipt | IBAN via Buyer Bank                  | Bank token check; SR + PoA for high-value transactions                                                             |
-| 3. No invoice                             | [`scenario-03/`](scenario-03/) | Placeholder, to be detailed separately  |                                      |                                                                                                                    |
+| Scenario                                                    | Invoice process                         | Payment rail                         | Person and mandate checks                                                                                          |
+| ----------------------------------------------------------- | --------------------------------------- | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
+| [1.1 Deferred invoice, card or IBAN payment](scenario-1.1/) | Payment first, then invoice and receipt | Card via PSP, or IBAN via Buyer Bank | Card: SCA in the EUDI Wallet, PoA checked by the PSP. IBAN: bank token check, SR + PoA for high-value transactions |
+| [1.2 Upfront invoice, IBAN payment](scenario-1.2/)          | Invoice first, then payment and receipt | IBAN via Buyer Bank                  | Bank token check; SR + PoA for high-value transactions                                                             |
+| [1.3 No invoice, card payment (retail)](scenario-1.3/)      | Placeholder, to be detailed separately  |                                      |                                                                                                                    |
 
-Scenarios 1 and 2 follow the upstream specification. Scenario 3 is not covered by it.
+Scenarios 1.1 and 1.2 follow the upstream specification. Scenario 1.3 is not covered by it.
 
 ## Actors
 

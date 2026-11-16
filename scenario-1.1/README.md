@@ -1,4 +1,4 @@
-# Scenario 1: Deferred invoice, card or IBAN payment
+# Scenario 1.1: Deferred invoice, card or IBAN payment
 
 The Seller requests payment first. The Authorised Person pays either by card through the EUDI Wallet, or by IBAN transfer from the Buyer EBW. On the card rail the PSP performs SCA against the wallet and checks the PoA mandate against the Buyer EBW. On the IBAN rail the Buyer Bank validates a token and, for high-value transactions, checks the SR and PoA mandate. After settlement the Seller delivers the eInvoice and the eReceipt. Overview and shared context: [repository README](../README.md).
 

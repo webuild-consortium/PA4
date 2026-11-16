@@ -1,4 +1,4 @@
-# Scenario 2: Upfront invoice, IBAN payment
+# Scenario 1.2: Upfront invoice, IBAN payment
 
 The eInvoice is already in the Buyer EBW when the flow starts. The Authorised Person initiates an IBAN transfer from the Buyer EBW, which hands the payment to the Buyer Bank with a token. The bank validates the token without an SCA prompt. For a standard transaction it checks the token authorisation; for a high-value transaction it checks the SR and PoA mandate against the Buyer EBW. After settlement the Seller issues the eReceipt. Overview and shared context: [repository README](../README.md).
 
