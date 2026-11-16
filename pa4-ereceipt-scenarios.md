@@ -50,7 +50,6 @@ Based on the upstream WP3 PA4 workflow document v1.0 final (2026-06-19), with Sc
     - [8.5 Step 4: Legal Entity Payment Authorization](#85-step-4-legal-entity-payment-authorization)
     - [8.6 Step 5: Payment Settlement](#86-step-5-payment-settlement)
     - [8.7 Step 6: eReceipt Issuance](#87-step-6-ereceipt-issuance)
-    - [8.8 Scenario 1.3: No invoice with card payment (retail)](#88-scenario-13-no-invoice-with-card-payment-retail)
 - [9. Acceptance Criteria](#9-acceptance-criteria)
 - [10. Open Issues / Decisions Pending](#10-open-issues--decisions-pending)
 - [11. References](#11-references)
@@ -379,6 +378,7 @@ The Authorised Person may represent more than one company, so the first thing th
 - **Actors**: Authorised Person, Bank.
 - **Post-condition**: Bank session bound to the selected legal entity.
 - **Errors / fallbacks**: Legal-entity discovery fails → Authorised Person is prompted to re-select; session is not bound.
+- **No Invoice (retail)**: no separate step and no eInvoice present; the legal entity is implied by the PoA presented in Step 2.
 
 ### 8.3 Step 2: Payment Initiation
 
@@ -388,6 +388,7 @@ Here the workflow forks for the first time, depending on the payment rail chosen
 - **Branches**:
     - **Card**: Authorised Person scans a code with EUDI Wallet → EUDI Wallet initiates payment with PSP.
     - **IBAN**: Authorised Person triggers IBAN transfer from Buyer → Bank receives payment filling with a token.
+    - **No Invoice (retail, card)**: Authorised Person scans the payment request (QR code or dynamic link) from the Seller's web shop or POS with EUDI Wallet → EUDI Wallet initiates the card payment with PSP and presents the PoA (card scope, limit).
 - **Post-condition**: A pending payment instruction exists at PSP or Bank.
 - **Errors / fallbacks**: Code scan fails (card) or token generation fails (IBAN) → process aborts before authorization.
 
@@ -399,6 +400,7 @@ This step answers the question "is the right _person_ approving this payment?". 
 - **Branches**:
     - **Card**: PSP requests SCA from EUDI Wallet; Authorised Person presents SCA (PIN or biometric).
     - **IBAN standard**: Bank performs an internal token validity check (no SCA prompt).
+    - **No Invoice (retail, card)**: as Card.
 - **Post-condition**: Payment is authorised at the rail-specific level.
 - **Errors / fallbacks**: SCA failure → payment is rejected; token invalid → IBAN flow aborts.
 
@@ -411,6 +413,7 @@ Step 3 proved _who_ is approving; Step 4 proves _they are allowed to_ approve on
     - **Card**: PSP verifies Authorised Person authorization against Buyer (PoA scope: card, limit: x), then asks Bank to settle.
     - **IBAN – high tx**: Bank verifies Authorised Person authorization against Buyer (SR + PoA, scope: tx, limit: x).
     - **IBAN – standard**: Bank verifies token authorization against Buyer and initiates settlement.
+    - **No Invoice (retail, card)**: PSP verifies the PoA presented by EUDI Wallet in Step 2 (scope: card, limit: x), then asks Bank to settle.
 - **Post-condition**: Settlement is authorised.
 - **Errors / fallbacks**: Missing or insufficient SR/PoA → settlement is not initiated.
 
@@ -421,6 +424,7 @@ With both the person and the company authorised, the Bank performs the actual mo
 - **Goal**: Move funds and notify Buyer.
 - **Flow**: Bank performs settlement internally and confirms to Buyer.
 - **Post-condition**: Payment is settled and Buyer holds a settlement confirmation.
+- **No Invoice (retail)**: Buyer Bank also sends a card statement to Buyer's EBW.
 
 ### 8.7 Step 6: eReceipt Issuance
 
@@ -429,55 +433,7 @@ The eReceipt is the persistent, verifiable proof that the invoice was paid, and 
 - **Goal**: Deliver an eReceipt attestation to the Buyer's EBW.
 - **Flow**: Buyer obtains the eReceipt from Seller (direct or indirect).
 - **Post-condition**: eReceipt attestation is stored in Buyer's EBW. No attestation is issued to the Authorised Person's EUDI Wallet.
-
-### 8.8 Scenario 1.3: No invoice with card payment (retail)
-
-Repository addition; not part of the upstream v1.0 document.
-
-An employee pays at a web shop or POS with the corporate card through their EUDI Wallet. The PSP checks the employee's authority through a PoA with card scope and limit and performs SCA through the EUDI Wallet. After settlement the Buyer Bank sends a card statement to the Buyer's EBW and the Seller issues the eReceipt to the Buyer's EBW over the secure channel between the business wallets. No invoice is issued.
-
-```mermaid
-sequenceDiagram
-  box Seller side
-    participant Shop as Seller retail front-end
-    participant SellerBW as Seller Business Wallet
-    participant SellerBank as Seller Bank (acquirer)
-  end
-  box Buyer side
-    actor Employee as Employee (Authorised Person)
-    participant EUDI as EUDI Wallet
-    participant BuyerBW as Buyer Business Wallet
-    participant BuyerBank as Buyer Bank (card issuer)
-  end
-  participant PSP
-
-  note over Shop, PSP: Step 0: Trigger (checkout at web shop or POS)
-  Shop ->> EUDI: Payment request (QR code or dynamic link)
-
-  note over Shop, PSP: Step 1: Legal entity selection (implied by the PoA, no separate step)
-
-  note over Shop, PSP: Step 2: Payment initiation (card)
-  Employee ->> EUDI: Scan the payment code
-  EUDI ->> PSP: Pay with corporate card
-  EUDI ->> PSP: Present PoA (card scope, limit)
-
-  note over Shop, PSP: Step 3: Payment authorisation (SCA)
-  PSP ->> EUDI: Request SCA
-  Employee ->> EUDI: Confirm SCA (PIN or biometric)
-  EUDI -->> PSP: SCA response
-
-  note over Shop, PSP: Step 4: Legal entity authorisation
-  PSP ->> PSP: Check PoA (card scope, limit)
-  PSP ->> BuyerBank: Authorise and settle
-
-  note over Shop, PSP: Step 5: Settlement and notification
-  BuyerBank <<->> SellerBank: Payment settlement
-  BuyerBank -->> BuyerBW: Card statement
-  SellerBank -->> SellerBW: Settlement notification
-
-  note over Shop, PSP: Step 6: eReceipt
-  SellerBW -->> BuyerBW: Issue eReceipt attestation (secure channel)
-```
+- **No Invoice (retail)**: only the eReceipt is issued, over the secure channel between the Business Wallets. No invoice is sent.
 
 ## 9. Acceptance Criteria
 
