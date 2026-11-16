@@ -4,7 +4,7 @@
 | Field        | Value                           |
 | ------------ | ------------------------------- |
 | Workflow ID  | PA4                             |
-| Version      | 1.1 (draft)                     |
+| Version      | 1.1                             |
 | Status       | Draft                           |
 | Owner        | PA4 / Florin                    |
 | Last updated | 2026-11-16                      |
