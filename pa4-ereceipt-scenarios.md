@@ -4,10 +4,9 @@
 | Field        | Value                           |
 | ------------ | ------------------------------- |
 | Workflow ID  | PA4                             |
-| Version      | 1.0 (final)                     |
-| Status       | Final                           |
+| Version      | 1.1                             |
 | Owner        | PA4 / Florin                    |
-| Last updated | 2026-06-19                      |
+| Last updated | 2026-11-16                      |
 | Related      | PA2, PA3, BU1-KYS, BU1-KYC, SC5 |
 
 Editors:
@@ -18,7 +17,41 @@ Editors:
 - Nikos Triantafyllou, UAegean, Greece
 - Teemu Varpanen, ReceiptHero, Finland
 
-> **How to read this document.** Sections 1–4 set the stage (what this workflow is, what it covers, who participates, and what the acronyms mean). Sections 5–7 capture the assumptions, prerequisites, and data inputs/outputs that frame the MVP. Section 8 walks through the end-to-end flow, first as a single overview diagram, then step by step. Sections 9–11 close the loop with acceptance criteria, open questions, and references. A new reader can skim §1 → §3 → §8.1 to get the gist in two minutes.
+## Contents
+
+- [1. Purpose](#1-purpose)
+- [2. Scope](#2-scope)
+    - [2.1 In scope](#21-in-scope)
+    - [2.2 Out of scope](#22-out-of-scope)
+- [3. Actors & Systems](#3-actors--systems)
+- [4. Glossary](#4-glossary)
+- [5. Assumptions & Restrictions](#5-assumptions--restrictions)
+    - [5.1 Seller (Holder)](#51-seller-holder)
+    - [5.2 Buyer (Relying Party)](#52-buyer-relying-party)
+    - [5.3 Authorised Person](#53-authorised-person)
+    - [5.4 Holder Business Wallet](#54-holder-business-wallet)
+    - [5.5 Relying-Party Business Wallet](#55-relying-party-business-wallet)
+    - [5.6 General](#56-general)
+- [6. Pre-requisites](#6-pre-requisites)
+    - [6.1 Seller pre-requisites](#61-seller-pre-requisites)
+    - [6.2 Buyer pre-requisites](#62-buyer-pre-requisites)
+- [7. Inputs / Outputs / Triggers](#7-inputs--outputs--triggers)
+    - [7.1 Deferred Invoice](#71-deferred-invoice)
+    - [7.2 Upfront  Invoice](#72-upfront--invoice)
+    - [7.3 No Invoice (retail)](#73-no-invoice-retail)
+- [8. End-to-end Scenario](#8-end-to-end-scenario)
+    - [8.1 Overview](#81-overview)
+    - [8.2 Step 1: Legal Entity Selection](#82-step-1-legal-entity-selection)
+    - [8.3 Step 2: Payment Initiation](#83-step-2-payment-initiation)
+    - [8.4 Step 3: Payment Authorization](#84-step-3-payment-authorization)
+    - [8.5 Step 4: Legal Entity Payment Authorization](#85-step-4-legal-entity-payment-authorization)
+    - [8.6 Step 5: Payment Settlement](#86-step-5-payment-settlement)
+    - [8.7 Step 6: eReceipt Issuance](#87-step-6-ereceipt-issuance)
+- [9. Acceptance Criteria](#9-acceptance-criteria)
+- [10. Open Issues / Decisions Pending](#10-open-issues--decisions-pending)
+- [11. References](#11-references)
+
+> **How to read this document.** Sections 1 to 4 set the stage (what this workflow is, what it covers, who participates, and what the acronyms mean). Sections 5 to 7 capture the assumptions, prerequisites, and data inputs/outputs that frame the MVP. Section 8 walks through the end-to-end flow, first as a single overview diagram, then step by step. Sections 9 to 11 close the loop with acceptance criteria, open questions, and references. A new reader can skim §1 → §3 → §8.1 to get the gist in two minutes.
 
 ## 1. Purpose
 
@@ -70,20 +103,20 @@ The table below introduces every participant who appears in the diagrams further
 
 This workflow sits at the intersection of EU digital-identity regulation, banking, and e-invoicing, so the vocabulary is dense. Use this glossary as a quick lookup; the most load-bearing terms in the diagrams are **EBW** (the company's wallet), **EUDI Wallet** (the person's wallet), **SCA** (how the person proves they are present), and **SR / PoA** (how the person proves they may act for the company).
 
-- **EBW** – European Business Wallet
-- **EBWOID** – EBW Organisational Identifier
-- **EUDI Wallet** – European Digital Identity Wallet (held by natural person)
-- **PID** – Personal Identification Data credential
-- **SCA** – Strong Customer Authentication
-- **PoA** – Power of Attorney attestation
-- **SR** – Signatory Rights attestation
-- **RP** – Relying Party
-- **KYS / KYC** – Know Your Supplier / Know Your Customer
-- **eInvoice** – Electronic invoice credential delivered to Business Wallet
-- **eReceipt** – Electronic receipt attestation issued after settlement
-- **PSP** – Payment Service Provider
-- **LOTL** – List of Trust Lists (mutual-auth check, disabled in MVP)
-- **Authorised Person** – the natural person empowered to act on behalf of the legal person (Buyer), in the sense of eIDAS 2 / EBW regulation; their authority is evidenced by the company's Signatory Rights (SR) list together with the Power of Attorney (PoA) attestation held in the Business Wallet. In PSD2 / payments terminology, the same role is also known as the **Authorised User** of the corporate account.
+- **EBW**: European Business Wallet
+- **EBWOID**: EBW Organisational Identifier
+- **EUDI Wallet**: European Digital Identity Wallet (held by natural person)
+- **PID**: Personal Identification Data credential
+- **SCA**: Strong Customer Authentication
+- **PoA**: Power of Attorney attestation
+- **SR**: Signatory Rights attestation
+- **RP**: Relying Party
+- **KYS / KYC**: Know Your Supplier / Know Your Customer
+- **eInvoice**: Electronic invoice credential delivered to Business Wallet
+- **eReceipt**: Electronic receipt attestation issued after settlement
+- **PSP**: Payment Service Provider
+- **LOTL**: List of Trust Lists (mutual-auth check, disabled in MVP)
+- **Authorised Person**: the natural person empowered to act on behalf of the legal person (Buyer), in the sense of eIDAS 2 / EBW regulation; their authority is evidenced by the company's Signatory Rights (SR) list together with the Power of Attorney (PoA) attestation held in the Business Wallet. In PSD2 / payments terminology, the same role is also known as the **Authorised User** of the corporate account.
 
 ## 5. Assumptions & Restrictions
 
@@ -92,13 +125,13 @@ The MVP cannot exercise the full target architecture, so we pin several variable
 ### 5.1 Seller (Holder)
 
 - Holds an active EBW with only the minimum set of attestations required to execute PA4.
-- Not required to complete Home-Bank onboarding (PA3) or KYS onboarding (BU1 – KYS).
+- Not required to complete Home-Bank onboarding (PA3) or KYS onboarding (BU1-KYS).
 - Classified exclusively as low- or medium-risk.
 
 ### 5.2 Buyer (Relying Party)
 
 - Holds an active EBW with only the minimum set of attestations required to execute PA4.
-- Not required to complete Home-Bank onboarding (PA3) or KYC onboarding (BU1 – KYC).
+- Not required to complete Home-Bank onboarding (PA3) or KYC onboarding (BU1-KYC).
 - Onboarding of the Authorised  is performed as part of end-customer onboarding (not as a separate business-representative onboarding under PA2).
 - Business Wallet is assumed to contain valid Signatory Rights (SR) attestations together with the corresponding PoA for the Authorised Representative.
 - For IBAN-based transactions, the IBAN information provided in the eInvoice is assumed trusted (IBAN validation is out of scope, see §2.2). IBAN validation is via the trusted bank issuer.
@@ -124,7 +157,7 @@ The MVP cannot exercise the full target architecture, so we pin several variable
 
 - Attestation verification for each attestation is limited to:
     - Cryptographic validation (Section 4.2.1).
-    - Issuer identification against an internal trusted list (Sections 4.2.2 – 4.3.3).
+    - Issuer identification against an internal trusted list (Sections 4.2.2 to 4.3.3).
 
 ### 5.6 General
 
@@ -156,10 +189,12 @@ This section names the concrete artefacts that flow into and out of the workflow
 There are two different processes covered:
 - Deferred invoice: payment first → invoice & receipt afterwards
 - Upfront invoice: invoice first → payment → receipt afterwards
+- No invoice (retail): payment first → receipt afterwards, no invoice
 
 The MVP and MVP+ cover the following constellations:
 - Deferred invoice with card payment
 - Upfront invoice with IBAN payment
+- No invoice with card payment
 
 Note: Deferred invoice with IBAN payment and upfront invoice with card payment are not part of the MVP or MVP+.
 
@@ -182,6 +217,18 @@ Note: Deferred invoice with IBAN payment and upfront invoice with card payment a
     - eInvoice (in Buyer's EBW)
     - eReceipt attestation issued to Buyer's EBW
 
+### 7.3 No Invoice (retail)
+
+- **Trigger**: the Seller requests payment at checkout (QR code or dynamic link) from a web shop or POS.
+- **Inputs**:
+    - Employee's PID, SCA attestation and PoA (card scope, limit) in the EUDI Wallet
+    - Corporate card issued by the Buyer Bank
+- **Outputs**:
+    - Settled payment (card)
+    - Card statement in Buyer's EBW
+    - eReceipt attestation issued to Buyer's EBW
+    - No eInvoice is issued
+
 ## 8. End-to-end Scenario
 This is the heart of the document. The flow is broken into six steps that always run in the same order:
 * (1) pick the legal entity
@@ -191,20 +238,24 @@ This is the heart of the document. The flow is broken into six steps that always
 * → (5) settle
 * → (6) issue the eReceipt.
 
-Steps 2–4 each have branches depending on whether the payment is by card or by IBAN (and, for IBAN, whether it is a standard or high-value transaction).
+Steps 2 to 4 each have branches depending on whether the payment is by card or by IBAN (and, for IBAN, whether it is a standard or high-value transaction).
 - §8.1 shows everything at a glance;
 - §8.2 to §8.7 zoom into each step with goal, branches, pre/post-conditions, and error paths.
 
 The MVP and MVP+ cover the following constellations:
 - Deferred invoice with card payment
 - Upfront invoice with IBAN payment
+- No invoice with card payment
 
-The diagram below is the single picture to remember. Read it top-to-bottom: the eInvoice arrives, the Authorised Person starts the process at the Bank, and each subsequent block (Steps 1–6) lines up with one of the detail subsections that follow. `alt … else … end` blocks represent the card-vs-IBAN branches.
+### 8.1 Overview
+
+The diagram below is the single picture to remember. Read it top-to-bottom: the eInvoice arrives, the Authorised Person starts the process at the Bank, and each subsequent block (Steps 1 to 6) lines up with one of the detail subsections that follow. `alt … else … end` blocks represent the card-vs-IBAN branches.
 
 **Note**: Color legend:
-- Blue – Deferred Invoice
-- Green – Upfront Invoice
-- White – Applicable to both scenarios
+- Blue: Deferred Invoice
+- Green: Upfront Invoice
+- Orange: No Invoice
+- White: Applicable to all three scenarios
 
 ```mermaid
 sequenceDiagram
@@ -232,6 +283,11 @@ participant PSP
         note over Buyer : Buyer company receives an eInvoice<br/>in its Business Wallet<br/>(direct or indirect)
         AuthPerson ->>+ Buyer : Select "Start Payment process" service
        end 
+    else **No Invoice (retail)**
+       rect rgb(255, 240, 220)
+        note over Seller : Seller requests payment at checkout<br/>(web shop or POS)
+        Seller ->> EUDI_Wallet : payment request (QR code or dynamic link)
+       end
     end 
     
     note over Seller, BuyerBank  : Step 1: Legal Entity Selection
@@ -244,6 +300,9 @@ participant PSP
         AuthPerson <<->> EUDI_Wallet : scan the code
         EUDI_Wallet <<->> PSP : initiate the payment
         end
+       rect rgb(255, 240, 220)
+        EUDI_Wallet ->> PSP : present PoA (card scope, limit) [No Invoice]
+       end
     else **Account-based payment (IBAN)**
        rect rgb(220, 255, 220)
         AuthPerson <<->> Buyer : initiate the IBAN payment transfer
@@ -283,6 +342,9 @@ participant PSP
     BuyerBank <<->> SellerBank : payment settlement
     BuyerBank <<->> Buyer : payment / settlement confirmation
     SellerBank <<->> Seller : payment / settlement notication
+    rect rgb(255, 240, 220)
+    BuyerBank ->> Buyer : card statement [No Invoice]
+    end
 
     note over SellerBank, BuyerBank  : Step 6: Post Notification   
     alt **Deferred Invoice**
@@ -295,6 +357,10 @@ participant PSP
      
         Buyer <<->> Seller : eReceipt issuing (direct or indirect)
         end 
+    else **No Invoice (retail)**
+        rect rgb(255, 240, 220)
+        Seller <<->> Buyer : eReceipt issuing (secure channel), no invoice
+        end
     end 
 ```
 
@@ -307,6 +373,7 @@ The Authorised Person may represent more than one company, so the first thing th
 - **Actors**: Authorised Person, Bank.
 - **Post-condition**: Bank session bound to the selected legal entity.
 - **Errors / fallbacks**: Legal-entity discovery fails → Authorised Person is prompted to re-select; session is not bound.
+- **No Invoice (retail)**: no separate step and no eInvoice present; the legal entity is implied by the PoA presented in Step 2.
 
 ### 8.3 Step 2: Payment Initiation
 
@@ -316,6 +383,7 @@ Here the workflow forks for the first time, depending on the payment rail chosen
 - **Branches**:
     - **Card**: Authorised Person scans a code with EUDI Wallet → EUDI Wallet initiates payment with PSP.
     - **IBAN**: Authorised Person triggers IBAN transfer from Buyer → Bank receives payment filling with a token.
+    - **No Invoice (retail, card)**: Authorised Person scans the payment request (QR code or dynamic link) from the Seller's web shop or POS with EUDI Wallet → EUDI Wallet initiates the card payment with PSP and presents the PoA (card scope, limit).
 - **Post-condition**: A pending payment instruction exists at PSP or Bank.
 - **Errors / fallbacks**: Code scan fails (card) or token generation fails (IBAN) → process aborts before authorization.
 
@@ -327,6 +395,7 @@ This step answers the question "is the right _person_ approving this payment?". 
 - **Branches**:
     - **Card**: PSP requests SCA from EUDI Wallet; Authorised Person presents SCA (PIN or biometric).
     - **IBAN standard**: Bank performs an internal token validity check (no SCA prompt).
+    - **No Invoice (retail, card)**: as Card.
 - **Post-condition**: Payment is authorised at the rail-specific level.
 - **Errors / fallbacks**: SCA failure → payment is rejected; token invalid → IBAN flow aborts.
 
@@ -337,8 +406,9 @@ Step 3 proved _who_ is approving; Step 4 proves _they are allowed to_ approve on
 - **Goal**: Confirm the Authorised Person has authority for the legal entity to execute this payment.
 - **Branches**:
     - **Card**: PSP verifies Authorised Person authorization against Buyer (PoA scope: card, limit: x), then asks Bank to settle.
-    - **IBAN – high tx**: Bank verifies Authorised Person authorization against Buyer (SR + PoA, scope: tx, limit: x).
-    - **IBAN – standard**: Bank verifies token authorization against Buyer and initiates settlement.
+    - **IBAN high tx**: Bank verifies Authorised Person authorization against Buyer (SR + PoA, scope: tx, limit: x).
+    - **IBAN standard**: Bank verifies token authorization against Buyer and initiates settlement.
+    - **No Invoice (retail, card)**: PSP verifies the PoA presented by EUDI Wallet in Step 2 (scope: card, limit: x), then asks Bank to settle.
 - **Post-condition**: Settlement is authorised.
 - **Errors / fallbacks**: Missing or insufficient SR/PoA → settlement is not initiated.
 
@@ -349,6 +419,7 @@ With both the person and the company authorised, the Bank performs the actual mo
 - **Goal**: Move funds and notify Buyer.
 - **Flow**: Bank performs settlement internally and confirms to Buyer.
 - **Post-condition**: Payment is settled and Buyer holds a settlement confirmation.
+- **No Invoice (retail)**: Buyer Bank also sends a card statement to Buyer's EBW.
 
 ### 8.7 Step 6: eReceipt Issuance
 
@@ -357,6 +428,7 @@ The eReceipt is the persistent, verifiable proof that the invoice was paid, and 
 - **Goal**: Deliver an eReceipt attestation to the Buyer's EBW.
 - **Flow**: Buyer obtains the eReceipt from Seller (direct or indirect).
 - **Post-condition**: eReceipt attestation is stored in Buyer's EBW. No attestation is issued to the Authorised Person's EUDI Wallet.
+- **No Invoice (retail)**: only the eReceipt is issued, over the secure channel between the Business Wallets. No invoice is sent.
 
 ## 9. Acceptance Criteria
 
@@ -376,15 +448,13 @@ The MVP is still a draft, and several specification points are deliberately left
 
 - [ ] Confirm exact contents of the "minimum attestation set" for Seller vs Buyer EBW.
 - [ ] Define the trusted-list source used by the RP wallet for issuer identification.
-- [ ] Decide whether eReceipt issuance is always direct (Seller → Buyer) or whether an indirect channel is required in the MVP.
-- [ ] Define error / retry behaviour when SCA fails mid-flow.
 
 ## 11. References
 
 Pointers to the sibling workflows and specification sections that PA4 depends on or defers to. When a topic was excluded in §2.2, this is usually where the responsibility moves.
 
-- PA2 – Business-representative onboarding (SCA attestation issuance).
-- PA3 – Home-Bank onboarding.
-- BU1 – KYS / KYC processes.
-- SC5 – Invoice delivery channel.
-- RP wallet verification, Sections 4.2.1, 4.2.2 – 4.3.3.
+- PA2: Business-representative onboarding (SCA attestation issuance).
+- PA3: Home-Bank onboarding.
+- BU1 KYS / KYC processes.
+- SC5: Invoice delivery channel.
+- RP wallet verification, Sections 4.2.1, 4.2.2 to 4.3.3.
