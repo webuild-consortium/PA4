@@ -1,6 +1,6 @@
-# MVP BU1 Scenario 1 – Scenario Tracker Baseline
+# MVP PA4 Scenario21 – Scenario Tracker Baseline
 
-**Purpose:** Use-case-lead working baseline for BU1 Scenario 1 scenarios. Copy and approve scenario-specific requirements before creating a partner/technical-role tracker. Based on `WP4_Tracker_TEMPLATE.md`
+**Purpose:** Use-case-lead working baseline for PA4 Scenario2. Copy and approve scenario-specific requirements before creating a partner/technical-role tracker. Based on `WP4_Tracker_TEMPLATE.md`
 
 **Approval:** ❔ Not approved · **Progress:** No partner execution evidence was supplied. All execution statuses are ⚪ Not started; applicability and proposed test cases remain ❔ To confirm.
 
@@ -18,7 +18,7 @@
 | Baseline        | baseline                       |
 | Last update d   | date                           |
 
-**Copy rule:** For each partner, instantiate `MVP_BU1 Scenario 1-S<Scenario>_<Partner>_<BusinessRole>_<TechnicalRole>.md` for each actual partner/role combination. Retain N/A items with a justification; duplicate per-wallet and per-attestation items as needed.
+**Copy rule:** For each partner, instantiate `MVP_PA4 Scenario2_<Partner>_<BusinessRole>_<TechnicalRole>.md` for each actual partner/role combination. Retain N/A items with a justification; duplicate per-wallet and per-attestation items as needed.
 
 ## 2. Wallet inventory and proposed roles
 
@@ -28,7 +28,7 @@
 | EBW      | EBW for legal-entity workflows (can be cloud or mobile solution) | MVP         | Spherity,Procivis, Telekom -Wallet, Sphereon.... | TBD | ❔ | ⚪ | |
 | EUDI     | EUDI Wallet for legal representative to obtain EBWOID& & EUCC    | MVP         | Procivis,Credenco, D-You Wallet, ...             | TBD | ❔ | ⚪ | |
 
-*Source note:** The supplied BU1 Scenario 1 file proposes these wallet/persona combinations; whether separate physical wallet instances are needed and which scenarios require them must be confirmed. The generic template requires a separate row per distinct implementation.
+*Source note:** The supplied PA4 Scenario 2 file proposes these wallet/persona combinations; whether separate physical wallet instances are needed and which scenarios require them must be confirmed. The generic template requires a separate row per distinct implementation.
 
 ## Stage 1 – Role identification
 | ID   | Requirement                                                        | Status | Evidence / decision |
@@ -144,23 +144,27 @@ Follow the generic Stage 5 instructions in `WP4_Onboarding.md`. The detailed PA3
 **Only this baseline and its scenario/partner tracker copies define and record MVP interoperability execution.** Neither PA4 Scenario 1 source provides approved end-to-end test steps or actual execution results. The rows below are placeholders to be specified by the use-case lead; they are not evidence of completion.
 
 ## 9.1. Direct case
-| Test ID   | Scenario step                                          | Participants          | Expected result / acceptance criterion | 
-|-----------|--------------------------------------------------------|-----------------------|---|
-| Step1     | Seller is onboarded as business partner                | Initiator / Verifier  | Identification process is successfully initiated. | 
-| Step2     | Seller create invoice in the internal system           | Initiator / Verifier  | Identification process is successfully initiated. | 
-| Step3     | Seller issue the eInvoice directly to business partner | Initiator / Verifier  | Required information is captured and validated. | 
+| Test ID | Scenario step                                                                                                                                | Participants   | Expected result / acceptance criterion            | 
+|---------|----------------------------------------------------------------------------------------------------------------------------------------------|----------------|---------------------------------------------------|
+| Step 1  | Seller onboarding: The seller is registered and onboarded as an approved business partner.                                                   | Seller / Buyer | Seller identity is successfully verified, and the seller is registered as an approved business partner in the buyer's system. |
+| Step 2  | Invoice generation: The seller initiates the generation of an direct eInvoice for the selected business partner.                             | Seller | The eInvoice is generated with the required invoice data and linked to the correct business partner. |
+| Step 3  | eInvoice issuance: The seller uses the ERDS to issue and securely deliver the eInvoice to the designated buyer.                              | Seller / Buyer | The eInvoice is successfully issued and delivered to the intended buyer, with delivery confirmation recorded. |
+| Step 4  | eInvoice receipt and acceptance: The buyer receives the eInvoice and acknowledges its receipt.                                               | Buyer  | The eInvoice is successfully received, and its receipt is acknowledged and recorded. |
+| Step 5  | eInvoice validation: The buyer validates the received eInvoice.                                                                              | Buyer / Verifier | The eInvoice passes the applicable format, integrity, authenticity and required-data checks. |
+| Step 6  | Internal system validation: The buyer validates the eInvoice against internal business and financial systems (e.g., SAP or non-SAP systems). | Buyer / ERP System | Invoice data is successfully matched against the relevant internal records, and the validation result is recorded. |
+| Step 7  | Settlement initiation: The buyer initiates the invoice settlement process.                                                                   | Buyer / Financial System | The approved invoice is transferred to the payment process, and settlement initiation is confirmed. |
 
 ## 9.2. Indirect case
 
-| Test ID | Scenario step                                                   | Participants | Expected result / acceptance criterion | Owner |
-|---------|-----------------------------------------------------------------|---|---|
-| Step1   | Seller is onboarded as business partner                         | Initiator / Verifier | Identification process is successfully initiated. | 
-| Step2   | Seller trigger the invoice generation for indirect invoice      | Initiator / Verifier | Identification process is successfully initiated. | 
-| Step3   | Seller - ERDS issue the eInvoice to specified business partner | Initiator / Verifier | Required information is captured and validated. | 
-| Step4   | Buyer receive the invoice and  accept  it                       | Initiator / Verifier | Required information is captured and validated. | 
-| Step5   | Buyer validate the invoice                                      | Initiator / Verifier | Required information is captured and validated. | 
-| Step6   | Buyer validate against internal system ( ex. SAP and non -SAP)   | Initiator / Verifier | Required information is captured and validated. | 
-| Step7   | Buyer trigger the settlement                                    | Initiator / Verifier | Required information is captured and validated. | 
+| Test ID | Scenario step                                                                                                                                  | Participants | Expected result / acceptance criteria |
+|---------|------------------------------------------------------------------------------------------------------------------------------------------------|---|---|
+| Step 1  | Seller onboarding: The seller is registered and onboarded as an approved business partner.                                                     | Seller / Buyer | Seller identity is successfully verified, and the seller is registered as an approved business partner in the buyer's system. |
+| Step 2  | Invoice generation: The seller initiates the generation of an indirect eInvoice for the selected business partner.                             | Seller | The eInvoice is generated with the required invoice data and linked to the correct business partner. |
+| Step 3  | eInvoice issuance: The seller uses the ERDS to issue and securely deliver the eInvoice to the designated buyer.                                | Seller / ERDS / Buyer | The eInvoice is successfully issued and delivered to the intended buyer, with delivery confirmation recorded. |
+| Step 4  | eInvoice receipt and acceptance: The buyer receives the eInvoice and acknowledges its receipt.                                                 | Buyer / ERDS | The eInvoice is successfully received, and its receipt is acknowledged and recorded. |
+| Step 5  | eInvoice validation: The buyer validates the received eInvoice.                                                                                | Buyer / Verifier | The eInvoice passes the applicable format, integrity, authenticity and required-data checks. |
+| Step 6  | Internal system validation: The buyer validates the eInvoice against internal business and financial systems (e.g., SAP or non-SAP systems).   | Buyer / ERP System | Invoice data is successfully matched against the relevant internal records, and the validation result is recorded. |
+| Step 7  | Settlement initiation: The buyer initiates the invoice settlement process.                                                                     | Buyer / Financial System | The approved invoice is transferred to the payment process, and settlement initiation is confirmed. |
 
 ## Actual MVP Execution Runs
 
@@ -182,6 +186,6 @@ Follow the generic Stage 5 instructions in `WP4_Onboarding.md`. The detailed PA3
 | TBD |                         |             |          |       |        |        |                   |
 
 ## Change log
-| Date | Author | Change | Baseline version |
-|---|---|---|---|
-| 2026-11-19 | Draft prepared from three uploaded files | Consolidated BU1 Scenario 1 candidate requirements into WP4 nine-stage tracker; no partner progress inferred | 0.1 draft |
+| Date | Author | Change                                                                                                       | Baseline version |
+|---|---|--------------------------------------------------------------------------------------------------------------|---|
+| 2026-11-19 | Draft prepared from three uploaded files | Consolidated PA4 Scenario 2 candidate requirements into WP4 nine-stage tracker; no partner progress inferred | 0.1 draft |
