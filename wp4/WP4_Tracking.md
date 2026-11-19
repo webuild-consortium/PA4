@@ -1,0 +1,68 @@
+# WP4 Tracking – Operating Concept
+
+**Purpose:** Define how UseCases manages generic onboarding guidance, scenario-specific requirements and evidence-based MVP execution tracking.
+
+## Document architecture
+
+| Document                               | Owner                                                   | Scope | Copies                                                                      |
+|----------------------------------------|---------------------------------------------------------|---|-----------------------------------------------------------------------------|
+| `WP4_Tracking.md`                      | WP4                                                     | Methodology, roles, stage definitions, governance | One                                                                         |
+| `wp4/WP4_Onboarding.md`                | WP4                                                     | Generic procedures, ITB, trust registration, conformance and prerequisite provisioning | One                                                                         |
+| `wp4/WP4_Tracker_TEMPLATE.md`          | WP4; generic template                                   | Scenario requirements and partner-specific status, evidence and MVP execution | Generic Template |
+| `MVP_PA3_Tracker_Partnername_Roles.md` | Tracker configured for PA3; configured by use-case lead | Scenario requirements and partner-specific status, evidence and MVP execution | One template baseline for use cases ; mayn copies per scenario/partner/role |
+
+**Separation of concerns:** Onboarding describes **how**; the approved scenario tracker specifies **what** is required; partner copies record **actual execution**. No partner-specific progress or MVP test results belong in the generic documents.
+
+## Four-phase, nine-stage model
+
+| Phase                                            | Stage | Activity                                    | Output in tracker                         |
+|--------------------------------------------------|---:|---------------------------------------------|-------------------------------------------|
+| A – Identification and Wallet Setup              | 1 | Role identification                         | Confirmed business and technical roles    |
+| A – Identification and Wallet Setup              | 2 | Wallet initialization and deployment        | Wallet inventory and operational evidence |
+| B – ITB Onboarding and Basic Conformance         | 3 | ITB onboarding                              | Access confirmation                       |
+| B – ITB Onboarding and Basic Conformance         | 4 | ITB Basic Conformance (CS-01, CS-02)        | Applicable test cases and results         |
+| C – Trust and Role-Specific Conformance          | 5 | WEBUILD Trust List Registration             | Applicable registrations/certificates     |
+| C – Trust and Role-Specific Conformance          | 6 | Trust conformance (CS-Trust)                | Selected cases and results                |
+| C – Trust and Role-Specific Conformance          | 7 | Role-specific conformance                   | Selected CS-Issuer, CS-Signature, etc.    |
+| D – Prerequisites Provisioning and MVP Execution | 8 | Role-specific prerequisite provisioning     | Credentials, schemas, DCQL, test data     |
+| D – Prerequisites Provisioning and MVP Execution | 9 | MVP interoperability execution and sign-off | Test runs, evidence, defects, approval    |
+
+**Execution dependencies:** Stage numbers establish a consistent reporting structure, not a strictly sequential timeline. Credentials and trust prerequisites may need to be prepared before a later-numbered stage is formally reached. The use-case lead approves dependencies and any exceptions.
+
+## Scenario instantiation workflow
+
+1. WP4 maintains the generic onboarding guidance and tracker template.
+2. The use-case lead copies the tracker template to `MVP_<UseCase>-<Scenario>_Tracker_Baseline.md` and defines roles, applicability, test cases, credentials, acceptance criteria and dependencies.
+3. Create a partner tracker from the approved baseline for each partner and technical role combination.
+4. Partners record status, dates, evidence, blockers and results. The use-case lead reviews exceptions and signs off the scenario.
+
+Example naming: `MVP_PA3-S1_Bosch_Supplier_Holder.md`. 
+Use `+` for combined technical roles and keep filenames free of spaces. Example names do not establish actual partner assignments.
+
+## Tracking and status rules
+
+Statuses: `Not started`, `In progress`, `Done`, `Blocked`, `Not applicable`, `To confirm`. For Stage 9 execution runs use `Not run`, `Pass`, `Fail`, `Blocked` and `Retest pending`.
+
+- Mark `Done` only when the exit criteria are met and supporting evidence is recorded.
+- Record a reason for every `Not applicable` decision and an owner for every blocker.
+- Keep scenario requirements separate from actual results; never assume example tests are mandatory.
+- A multi-role partner must cover all applicable roles and wallet instances.
+- Do not infer MVP completion from conformance alone; Stage 9 requires recorded end-to-end interoperability evidence and use-case lead sign-off.
+
+## Generic applicability guidance
+
+| Role | Typical wallet | Stage 5 | Stages 6–7 | Stage 8 |
+|---|---|---|---|---|
+| Holder <br/> (natural person) | EUDI Wallet | Holder exception where pure Holder | As required by scenario | Obtain relevant credentials |
+| Holder <br/> (legal person) | EBW | Holder exception where pure Holder | As required by scenario | Obtain relevant credentials |
+| Verifier / RP | EBW or verifier implementation | Based on credential type and scenario | Trust/verification tests as specified | Import schemas and prepare DCQL requests |
+| Issuer | Issuer implementation / EBW | Based on attestation type | CS-Issuer and other applicable tests | Configure schema, data and issuance |
+| Intermediary / Wallet Provider | As specified | Scenario-dependent | Scenario-dependent | Scenario-dependent |
+
+## Readiness and sign-off
+
+A partner is ready for Stage 9 when all mandatory applicable preparation requirements are `Done`, or explicitly approved exceptions exist, and no critical blocker prevents execution. Final MVP completion requires scenario acceptance criteria, evidence and lead sign-off.
+
+## Open technical decisions
+
+The original files contain unverified issuer endpoints, trust-list registry links, credential schemas and assumptions about MVP versus MVP+ requirements. Keep them marked `To confirm` until approved by the responsible technical owners.
