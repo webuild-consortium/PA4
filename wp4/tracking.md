@@ -13,19 +13,19 @@
 
 **Separation of concerns:** Onboarding describes **how**; the approved scenario tracker specifies **what** is required; partner copies record **actual execution**. No partner-specific progress or MVP test results belong in the generic documents.
 
-## Four-phase, nine-stage model
+## Nine-stage model
 
-| Phase                                            | Stage | Activity                                    | Output in tracker                         |
-|--------------------------------------------------|---:|---------------------------------------------|-------------------------------------------|
-| A – Identification and Wallet Setup              | 1 | Role identification                         | Confirmed business and technical roles    |
-| A – Identification and Wallet Setup              | 2 | Wallet initialization and deployment        | Wallet inventory and operational evidence |
-| B – ITB Onboarding and Basic Conformance         | 3 | ITB onboarding                              | Access confirmation                       |
-| B – ITB Onboarding and Basic Conformance         | 4 | ITB Basic Conformance (CS-01, CS-02)        | Applicable test cases and results         |
-| C – Trust and Role-Specific Conformance          | 5 | WEBUILD Trust List Registration             | Applicable registrations/certificates     |
-| C – Trust and Role-Specific Conformance          | 6 | Trust conformance (CS-Trust)                | Selected cases and results                |
-| C – Trust and Role-Specific Conformance          | 7 | Role-specific conformance                   | Selected CS-Issuer, CS-Signature, etc.    |
-| D – Prerequisites Provisioning and MVP Execution | 8 | Role-specific prerequisite provisioning     | Credentials, schemas, DCQL, test data     |
-| D – Prerequisites Provisioning and MVP Execution | 9 | MVP interoperability execution and sign-off | Test runs, evidence, defects, approval    |
+| Phase                                          | Stage | Activity                                    | Output in tracker                         |
+|------------------------------------------------|---:|---------------------------------------------|-------------------------------------------|
+| Identification and Wallet Setup                | 1 | Role identification                         | Confirmed business and technical roles    |
+| Identification and Wallet Setup                | 2 | Wallet initialization and deployment        | Wallet inventory and operational evidence |
+| ITB Onboarding and Basic Conformance           | 3 | ITB onboarding                              | Access confirmation                       |
+| ITB Onboarding and Basic Conformance           | 4 | ITB Basic Conformance (CS-01, CS-02)        | Applicable test cases and results         |
+| Trust and Role-Specific Conformance            | 5 | WEBUILD Trust List Registration             | Applicable registrations/certificates     |
+| Trust and Role-Specific Conformance            | 6 | Trust conformance (CS-Trust)                | Selected cases and results                |
+| Trust and Role-Specific Conformance            | 7 | Role-specific conformance                   | Selected CS-Issuer, CS-Signature, etc.    |
+| Prerequisites Provisioning and MVP Execution   | 8 | Role-specific prerequisite provisioning     | Credentials, schemas, DCQL, test data     |
+| Prerequisites Provisioning and MVP Execution   | 9 | MVP interoperability execution and sign-off | Test runs, evidence, defects, approval    |
 
 **Execution dependencies:** Stage numbers establish a consistent reporting structure, not a strictly sequential timeline. Credentials and trust prerequisites may need to be prepared before a later-numbered stage is formally reached. The use-case lead approves dependencies and any exceptions.
 
@@ -51,18 +51,10 @@ Statuses: `Not started`, `In progress`, `Done`, `Blocked`, `Not applicable`, `To
 
 ## Generic applicability guidance
 
-| Role | Typical wallet | Stage 5 | Stages 6–7 | Stage 8 |
-|---|---|---|---|---|
-| Holder <br/> (natural person) | EUDI Wallet | Holder exception where pure Holder | As required by scenario | Obtain relevant credentials |
-| Holder <br/> (legal person) | EBW | Holder exception where pure Holder | As required by scenario | Obtain relevant credentials |
-| Verifier / RP | EBW or verifier implementation | Based on credential type and scenario | Trust/verification tests as specified | Import schemas and prepare DCQL requests |
-| Issuer | Issuer implementation / EBW | Based on attestation type | CS-Issuer and other applicable tests | Configure schema, data and issuance |
-| Intermediary / Wallet Provider | As specified | Scenario-dependent | Scenario-dependent | Scenario-dependent |
-
-## Readiness and sign-off
-
-A partner is ready for Stage 9 when all mandatory applicable preparation requirements are `Done`, or explicitly approved exceptions exist, and no critical blocker prevents execution. Final MVP completion requires scenario acceptance criteria, evidence and lead sign-off.
-
-## Open technical decisions
-
-The original files contain unverified issuer endpoints, trust-list registry links, credential schemas and assumptions about MVP versus MVP+ requirements. Keep them marked `To confirm` until approved by the responsible technical owners.
+| Role                           | Typical wallet                 | Stage 5                               | Stages 6–7                            | Stage 8                                  |
+|--------------------------------|--------------------------------|---------------------------------------|---------------------------------------|------------------------------------------|
+| Holder <br/> (natural person)  | EUDI Wallet                    | Holder exception where pure Holder    | As required by scenario               | Obtain relevant credentials              |
+| Holder <br/> (legal person)    | EBW                            | Holder exception where pure Holder    | As required by scenario               | Obtain relevant credentials              |
+| Verifier / RP                  | EBW or verifier implementation | Based on credential type and scenario | Trust/verification tests as specified | Import schemas and prepare DCQL requests |
+| Issuer                         | Issuer implementation / EBW    | Based on attestation type             | CS-Issuer and other applicable tests  | Configure schema, data and issuance      |
+| Intermediary / Wallet Provider | As specified                   | Scenario-dependent                    | Scenario-dependent                    | Scenario-dependent                       |

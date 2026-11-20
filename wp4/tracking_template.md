@@ -1,49 +1,36 @@
 # WP4 Tracker Template – Scenario Requirements and Partner Execution
 
-**Usage:** Copy this template first to an approved scenario baseline, then create a partner-specific copy for each partner/role combination. The use-case lead defines requirements; partners update actual progress. Generic procedures are maintained in [`WP4_Onboarding.md`](WP4_Onboarding.md).
+**Usage:** Copy this template first to an approved scenario baseline, then create a partner-specific copy for each partner/role combination. The use-case lead defines requirements; partners update actual progress. Generic procedures are maintained in [`WP4_Onboarding.md`](readme.md).
 
 **Statuses:** ⚪ Not started · 🟡 In progress · ✅ Done · 🔴 Blocked · ➖ N/A · ❔ To confirm. **Test outcomes:** Not run / Pass / Fail / Blocked / Retest pending.
 
 ## Scenario and partner profile
 
-| Field | Value |
-|---|---|
-| Use case / scenario | `<UseCase>-<Scenario>` |
-| Partner | `<Partner>` |
-| Business role | `<Supplier/Buyer/Bank/etc.>` |
-| Technical role(s) | `<Holder/Verifier/Issuer/etc.>` |
-| Use-case lead | `<Name>` |
-| Partner owner / contact | `<Name>` |
-| Baseline version / approval date | `<Version / date>` |
-| Last updated | `<YYYY-MM-DD>` |
-| Overall status | ⚪ |
+| Field                      | Value                           |
+|----------------------------|---------------------------------|
+| Use case / scenario        | `<UseCase>-<Scenario>`          |
+| Partner                    | `<Partner>`                     |
+| Partner owner / contact    | `<Name>`                        |
+| Business role              | `<Supplier/Buyer/Bank/etc.>`    |
+| Technical role(s)          | `<Holder/Verifier/Issuer/etc.>` |
+| Baseline                   | baseline                        |
+| Last updated               | `<YYYY-MM-DD>`                  |
+| Overall status             | ⚪                               |
 
-## Wallet inventory (repeat per implementation)
+## Wallet inventory (availabe wallets use case specifics)
 
-| Wallet ID | Wallet type | Provider / product | Version | Technical role | Endpoint / environment | Status | Evidence |
-|---|---|---|---|---|---|---|---|
-| W1 | EBW / EUDI | | | | | ⚪ | |
+| Wallet| Wallet type / purpose                                          | MVP or MVP+ | Provider / version                | Scenario / partner / role | Status | Evidence |
+|-------|----------------------------------------------------------------|-------------|-----------------------------------|---------------------------|--------|----------|
+| EBW   | EBW for legal-entity workflows                                 | MVP         | <to be filled by use case>        | Business/Technical roles  | ❔      |          |
+| EUDI  | EUDI Wallet for legal representative to obtain EBWOID& & EUCC  | MVP         | <to be filled by use case>        | Business/Technical roles  | ❔      |          |
 
-## Nine-stage dashboard
-
-| Phase | Stage | Stage name | Applies? | Status | Owner | Updated | Evidence / blocker |
-|-------|---:|---|---|---|---|---|---|
-| A     | 1 | Role identification | ❔ | ⚪ | | | |
-| A     | 2 | Wallet initialization and deployment | ❔ | ⚪ | | | |
-| B     | 3 | ITB onboarding | ❔ | ⚪ | | | |
-| B     | 4 | ITB Basic Conformance | ❔ | ⚪ | | | |
-| C     | 5 | WEBUILD Trust List Registration | ❔ | ⚪ | | | |
-| C     | 6 | Trust conformance | ❔ | ⚪ | | | |
-| C     | 7 | Role-specific conformance | ❔ | ⚪ | | | |
-| D     | 8 | Prerequisites provisioning | ❔ | ⚪ | | | |
-| D     | 9 | MVP interoperability execution and sign-off | ❔ | ⚪ | | | |
 
 ## Stage 1 – Role identification
 
-| ID | Requirement | Status | Owner | Evidence |
-|---|---|---|---|---|
-| 1.1 | Business role and scenario confirmed | ⚪ | | |
-| 1.2 | Technical roles and wallet assignment  | ⚪ | | |
+| ID  | Requirement                           | Status | Owner | Evidence |
+|-----|---------------------------------------|--------|-------|----------|
+| 1.1 | Business role and scenario confirmed  | ⚪      |       |          |
+| 1.2 | Technical roles and wallet assignment | ⚪      |       |          |
 
 ## Stage 2 – Wallet initialization and deployment
 

@@ -1,12 +1,12 @@
-# WP4 Onboarding – Generic Process and Reference Guidance
+# Onboarding – Generic Process and Reference Guidance
 
 **Purpose:** Reusable WP4 instructions for all partners and scenarios. Maintained centrally by WP4. Do not copy this document into individual partner trackers.
 
-**Scope:** Four phases and nine stages. Stages 1–8 provide generic onboarding and provisioning instructions; Stage 9 is documented only as a hand-off to the use-case tracker, where interoperability test execution and results are recorded.
+**Scope:** Stages 1–8 provide generic onboarding and provisioning instructions; Stage 9 is documented only as a hand-off to the use-case tracker, where interoperability test execution and results are recorded.
 
 **Status rule:** All scenario-specific applicability, exact test-case IDs, owners, evidence, results and sign-off belong in `WP4_Tracker_TEMPLATE.md` or its approved scenario/partner copies. Generic examples below are not mandatory test-case selections.
 
-## Phase A – Identification and Wallet Setup
+## Identification and Wallet Setup
 
 ### Stage 1 – Role identification
 
@@ -43,7 +43,7 @@
 
 ---
 
-## Phase B – ITB Onboarding and Basic Conformance
+## ITB Onboarding and Basic Conformance
 
 ### Stage 3 – ITB onboarding
 
@@ -62,7 +62,7 @@
 
 ---
 
-### Stage 4 – ITB Basic Conformance (CS-Basic)
+### ITB Basic Conformance (CS-Basic)
 
 **Goal:** Your wallet can receive and present credentials (no trust check).
 
@@ -88,7 +88,7 @@
 
 **Scenario-specific rule:** The use-case lead selects the applicable CS-01/CS-02 cases; the partner tracker records test IDs, runs, evidence and results. Do not treat the examples above as universally mandatory.
 
-## Phase C – Trust and Role-Specific Conformance
+## Trust and Role-Specific Conformance
 
 ### Stage 5 – WEBUILD Trust List Registration
 
@@ -192,11 +192,11 @@ Pure **Holders** (natural persons using EUDI mobile wallets, or businesses using
 
 *Prerequisites: Stage 3 passed; Stage 5 trust registration and Stage 6 trust conformance completed where required.*
 
-| Block                 | What it validates                                                                                                   | Applies to   | Status of definition |
-|:----------------------|:--------------------------------------------------------------------------------------------------------------------|:-------------|:---|
-| **CS-Issuer**         | The entity can successfully trigger EAA issuance                                                                    | EBW and EUDI | Defined |
-| **CS-Signature**      | The wallet can present a PID, obtain a QES via a QTSP and sign the document hash                                    | EUDI         | Defined |
-| **CS-QERS ** | The wallet can communicate over the QERDS channel | EUDI/EBW     | Defined |
+| Block            | What it validates                                                                                                   | Applies to   | Status of definition |
+|:-----------------|:--------------------------------------------------------------------------------------------------------------------|:-------------|:---|
+| **CS-Issuer**    | The entity can successfully trigger EAA issuance                                                                    | EBW and EUDI | Defined |
+| **CS-Signature** | The wallet can present a PID, obtain a QES via a QTSP and sign the document hash                                    | EUDI         | Defined |
+| **CS-QERS**      | The wallet can communicate over the QERDS channel | EUDI/EBW     | Defined |
 
 *Extensions for further processes: to be added.*
 
@@ -205,7 +205,7 @@ Pure **Holders** (natural persons using EUDI mobile wallets, or businesses using
 
 ---
 
-## Phase D – Prerequisites Provisioning and MVP Execution
+## Prerequisites Provisioning and MVP Execution
 
 ### Stage 8 – Generic prerequisite provisioning guidance
 
@@ -267,16 +267,16 @@ The use-case lead must adapt this matrix to the scenario.
 | **Ownership**                    |        ➖        |       ✅        | eu.webuild:ownership-share.1          | **National Business Register Shareholder Schema**   |
 | **Payment-Terms**                |        ➖        |       ✅        | eu.webuild:payment-terms.1            | **W3C Business Financial Conditions Schema**        |
 | **PID**                          |        ✅        |       ➖        | eu.europa.ec.eudi:pid.1               | **eIDAS 2.0 Personal Identification Data Schema**   |
-| **PoA-PoX**                      |        ➖        |       ✅        | eu.europa.ec.eudi:poa-pox.1           | **ISO 29115 Delegation & Representation Schema**    |
+| **PoA-PoX**                      |        ✅        |       ✅        | eu.europa.ec.eudi:poa-pox.1           | **ISO 29115 Delegation & Representation Schema**    |
 | **PWN**                          |        ✅        |       ➖        | eu.europa.ec.eudi:pwn.1               | **EU Posted Worker Notification Schema**            |
 | **Residence**                    |        ✅        |       ➖        | eu.webuild:residence-cor.1            | **Tax Authority Certificate of Residence Schema**   |
 | **SCA-Card-DPC**                 |        ✅        |       ➖        | eu.webuild:sca-card-dpc.1             | **ETSI TS 119 412 Payment Card SUA Schema**         |
 | **SCA-IBAN**                     |        ✅        |       ➖        | eu.webuild:sca-iban.1                 | **ETSI TS 119 412 Bank Account SUA Schema**         |
 | **SCA-User**                     |        ✅        |       ➖        | eu.webuild:sca-user.1                 | **PSD2 Strong Customer Authentication Schema**      |
 | **Site**                         |        ➖        |       ✅        | eu.webuild:site-location.1            | **Corporate Physical Asset Directory Schema**       |
-| **Social-Security-Contribution** |        ➖        |    ✅           | eu.europa.ec.eudi:social-security.1   | **National Social Security Attestation Schema**     |
+| **Social-Security-Contribution** |        ➖        |       ✅        | eu.europa.ec.eudi:social-security.1   | **National Social Security Attestation Schema**     |
 | **Student**                      |        ✅        |       ➖        | eu.europa.ec.eudi:student-card.1      | **European Student Card Initiative (ESCI) Schema**  |
-| **TaxID**                        |        ➖        |       ✅        | eu.webuild:taxid.1                    | **TIN (Tax Identification Number) Schema**          |
+| **TaxID**                        |        ✅        |       ✅        | eu.webuild:taxid.1                    | **TIN (Tax Identification Number) Schema**          |
 | **UBO**                          |        ➖        |       ✅        | eu.europa.ec.eudi:ubo.1               | **EU AMLD Beneficial Ownership Register Schema**    |
 | **VAT-ID**                       |        ➖        |       ✅        | eu.webuild:vat-id.1                   | **VIES (VAT Information Exchange System) Schema**   |
 | **Verified-Skill**               |        ✅        |       ➖        | eu.europa.ec.eudi:verified-skill.1    | **Europass Digital Credentials (EDC) Schema**       |
@@ -299,12 +299,12 @@ The use-case lead must adapt this matrix to the scenario.
 1. **Prepare attributes:** legal name, first name, date of birth, place of birth. *(To confirm: should this read Family Name and Given Name, matching the `family_name` claim?)*
 2. **Choose a generic PID issuer supporting multiple countries:**
 
-| PID issuer                   | Location                                                                 | Remarks                                                                  |
-|:-----------------------------|:-------------------------------------------------------------------------|:-------------------------------------------------------------------------|
-| EUDI Wallet demo application | [PID Issuer Portal](https://issuer.eudiw.dev/display_credential_offer)   | Define your own PID. **Not registered in the WEBUILD trusted list.**     |
-| Credenco Wallet              | [Credenco Playground](https://playground.credenco.com/webuild)           | Dutch playground with 6 predefined PIDs or a generic one.                |
+| PID issuer                   | Location                                                                  | Remarks                                                                  |
+|:-----------------------------|:--------------------------------------------------------------------------|:-------------------------------------------------------------------------|
+| EUDI Wallet demo application | [PID Issuer Portal](https://issuer.eudiw.dev/display_credential_offer)    | Define your own PID. **Not registered in the WEBUILD trusted list.**     |
+| Credenco Wallet              | [Credenco Playground](https://playground.credenco.com/webuild)            | Dutch playground with 6 predefined PIDs or a generic one.                |
 | eGov                         | [eGOV Playground](https://wallet.dev.egov.md/rp-tester/credential-claims) |                                                                          |
-| other                        |  |                                                                          |
+| other                        |                                                                           |                                                                          |
 
 *note* For country PID issuers support check here : [PID issuers](https://github.com/webuild-consortium/wp4-pid-ebwoid-group/blob/main/List%20of%20issuers.md#pid-issuers)
 
@@ -418,21 +418,8 @@ all other self attested
 Import the schema files from the table into your EBW, then build the request yourself or use the matching `*.dcql.standard.json` file.
 
 
-
-
-
-### Stage 9 – MVP interoperability execution and sign-off
+### Stage 9 – MVP interoperability execution
 
 Stage 9 is **tracked only in the scenario/partner tracker**. The use-case lead defines the end-to-end test steps and acceptance criteria; participating partners record each execution run, actual result, evidence, defects, retests and final approval. This generic onboarding document does not store MVP test results.
-
-## Items requiring technical confirmation
-
-- Correct issuer-specific trust-list URLs (several source links currently point to the same registry).
-- Availability and suitability of issuer endpoints, wallet providers and sectoral attestation schemas.
-- Exact role-based CS-Trust, CS-Issuer and CS-Signature requirements, including any MVP versus MVP+ distinction.
-- Wallet Provider onboarding URL and WP4 ITB contact details.
-- Whether a CSR, public certificate or issued certificate is required for each specific registry.
-
-## Change control
 
 WP4 owns this generic document. Proposed changes should be reviewed centrally; scenario-specific selections and evidence must remain in the trackers.
