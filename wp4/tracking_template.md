@@ -1,4 +1,4 @@
-# WP4 Tracker Template – Scenario Requirements and Partner Execution
+# Tracking Template – Scenario Requirements and Partner Execution
 
 **Usage:** Copy this template first to an approved scenario baseline, then create a partner-specific copy for each partner/role combination. The use-case lead defines requirements; partners update actual progress. Generic procedures are maintained in [`WP4_Onboarding.md`](readme.md).
 

@@ -6,27 +6,27 @@
 
 **Status legend:** ⚪ Not started · 🟡 In progress · ✅ Done · 🔴 Blocked · ➖ N/A (with reason) · ❔ To confirm. **Test outcomes:** Not run / Pass / Fail / Blocked / Retest pending.
 
-## 1. Scenario baseline profile
-| Field           | Baseline value                 |
-|-----------------|--------------------------------|
-| Use case        | PA4                            |
-| Scenario scope  | Scenarios 4                    |
-| Partner         | Business Partner Name          |
-| Contact         | Business Contact person        |
-| Business roles  | Seller or Buyer                |
-| Technical roles | Holder+Issuer or Verifier (RP) |
-| Baseline        | baseline                       |
-| Last update d   | date                           |
+## Scenario baseline profile
+| Field                      | Baseline value                 |
+|----------------------------|--------------------------------|
+| Use case / scenario        | PA4_Scenario2                  |
+| Partner                    | <Business Partner Name>        |
+| Partner owner / contact    | <Contact Name>                 |                
+| Business roles             | Seller or Buyer                |
+| Technical roles            | Holder+Issuer or Verifier (RP) |
+| Baseline                   | baseline                       |
+| Last update                | date                           |
+| Overall status             | ⚪                              |
 
 **Copy rule:** For each partner, instantiate `MVP_PA4 Scenario2_<Partner>_<BusinessRole>_<TechnicalRole>.md` for each actual partner/role combination. Retain N/A items with a justification; duplicate per-wallet and per-attestation items as needed.
 
-## 2. Wallet inventory and proposed roles
-
 ## Wallet inventory and proposed roles
-| Wallet   | Wallet type / purpose                                            | MVP or MVP+ | Provider / version                               | Scenario / partner / role | Required? | Status | Evidence |
-|----------|------------------------------------------------------------------|-------------|--------------------------------------------------|---|---|---|---|
-| EBW      | EBW for legal-entity workflows (can be cloud or mobile solution) | MVP         | Spherity,Procivis, Telekom -Wallet, Sphereon.... | TBD | ❔ | ⚪ | |
-| EUDI     | EUDI Wallet for legal representative to obtain EBWOID& & EUCC    | MVP         | Procivis,Credenco, D-You Wallet, ...             | TBD | ❔ | ⚪ | |
+
+| Wallet| Wallet type / purpose                                          | MVP or MVP+ | Provider / version               | Scenario / partner / role  | Status | Evidence |
+|-------|----------------------------------------------------------------|-------------|----------------------------------|----------------------------|--------|----------|
+| EBW   | EBW for legal-entity workflows                                 | MVP         | Procivis EBW ,.....              | Bosch / Buyer / Verifier   | ❔      |          |
+| EUDI  | EUDI Wallet for legal representative to obtain EBWOID& & EUCC  | MVP         | Procivis One Android, D-You,.... | Bosch / Buyer / Verifier   | ❔      |          |
+
 
 *Source note:** The supplied PA4 Scenario 2 file proposes these wallet/persona combinations; whether separate physical wallet instances are needed and which scenarios require them must be confirmed. The generic template requires a separate row per distinct implementation.
 

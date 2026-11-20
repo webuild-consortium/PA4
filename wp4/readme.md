@@ -20,7 +20,7 @@
 3. Identify the required EUDI Wallet and/or Enterprise Business Wallet (EBW) implementations for each role.
 4. Record the approved role assignment and wallet inventory in the scenario-specific partner tracker.
 
-**Exit criterion:** Roles and wallet requirements have been confirmed by the use-case lead.
+**Exit criterion:** Roles and wallet requirements have been confirmed by the use-case level.
 
 ### Stage 2 – Wallet initialization and deployment
 
@@ -62,7 +62,7 @@
 
 ---
 
-### ITB Basic Conformance (CS-Basic)
+### Stage 4. ITB Basic Conformance (CS-Basic)
 
 **Goal:** Your wallet can receive and present credentials (no trust check).
 
@@ -209,7 +209,7 @@ Pure **Holders** (natural persons using EUDI mobile wallets, or businesses using
 
 ### Stage 8 – Generic prerequisite provisioning guidance
 
-**Principle:** The use-case lead defines which credentials, schemas, proof requests, issuers and test data are required for each Holder, Verifier and Issuer. The approved scenario tracker is the source of those requirements. The following is a reference catalog and procedural guide, not a universal checklist.
+**Principle:** The use-case defines which credentials, schemas, proof requests, issuers and test data are required for each Holder, Verifier and Issuer. The approved scenario tracker is the source of those requirements. The following is a reference catalog and procedural guide, not a universal checklist.
 
 ### 8.1 Credential selection and dependencies
 
@@ -231,57 +231,6 @@ Obtain credentials in this order. Skip what your use case does not need.
 | 8.8 | **Self-EAA** (ex. CompanyInfo, ContactPerson, VAT, etc.) | EBW         | EBW + imported schemas       | Self-issued via your company wallet (8.8)             |
 
 Rulebook catalog: [webuild-attestation-rulebooks-catalog](https://github.com/webuild-consortium/webuild-attestation-rulebooks-catalog/tree/main/rulebooks)
-
-#### Reference credential catalog (scenario requirements are defined in the tracker) (to be reviewed by each use-case lead)
-
-In the scenario tracker, mark each credential as required, not applicable, or to be confirmed. 
-**Reference only:** The values below are illustrative, not approved scenario requirements. The use-case lead must record actual requirements in the scenario tracker.
-The use-case lead must adapt this matrix to the scenario. 
-
-| Credential                       | Holder(natural) | Holder (legal) | Verifier / RP (vct)                   | Issuer (require schema)                             |
-|:---------------------------------|:---------------:|:--------------:|:--------------------------------------|:----------------------------------------------------|
-| **A1**                           |        ✅        |       ➖        | eu.europa.ec.eudi:a1.1                | **eIDAS A1 Social Security Posting Schema**         |
-| **Approved-Supplier**            |        ➖        |       ✅        | eu.webuild:approved-supplier.1        | **Webuild Consortium Procurement Schema**           |
-| **Authorised-Signatories**       |        ➖        |       ✅        | eu.webuild:authorised-signatory.1     | **eIDAS 2.0 Electronic Mandates Schema**            |
-| **Authorized-Service-Provider**  |        ➖        |       ✅        | eu.webuild:auth-service-provider.1    | **Trust Network Partner Registry Schema**           |
-| **Boarding-Pass**                |        ✅        |       ➖        | eu.webuild:boarding-pass.1            | **IATA Verifiable Boarding Pass Schema**            |
-| **Company-Info**                 |        ➖        |       ✅        | eu.webuild:company-info.1             | **eIDAS 2.0 Business Attribute Attestation Schema** |
-| **Contact-Person**               |        ➖        |       ✅        | eu.webuild:contact-person.1           | **Webuild Operator Delegation Schema**              |
-| **Control**                      |        ➖        |       ✅        | eu.webuild:corporate-control.1        | **FATF Legal Arrangement Control Schema**           |
-| **DS-Membership**                |        ➖        |       ✅        | eu.webuild:ds-membership.1            | **EU Dataspace Participation Registry Schema**      |
-| **DUNS**                         |        ➖        |       ✅        | eu.webuild:duns.1                     | **Dun & Bradstreet Verified Business Schema**       |
-| **E-Receipt**                    |        ✅        |       ✅        | eu.webuild:e-receipt.1                | **CEN/TS Verifiable Till Receipt Schema**           |
-| **eInvoice**                     |        ➖        |       ✅        | eu.webuild:einvoice.1                 | **CEN EN 16931 Verifiable Invoice Schema**          |
-| **EBWOID**                       |        ➖        |       ✅        | eu.europa.ec.eudi:ebwoid.1            | **EUDI Wallet Minimal Business Identity Schema**    |
-| **eCMR**                         |        ➖        |       ✅        | eu.webuild:ecmr.1                     | **UN/CEFACT eCMR Consignment Note Schema**          |
-| **Employee**                     |        ✅        |       ➖        | eu.webuild:employee.1                 | **Electronic Employee Attestation Schema**          |
-| **ESG**                          |        ➖        |       ✅        | eu.webuild:esg.1                      | **EU CSRD Environmental & Governance Schema**       |
-| **ETRC**                         |        ✅        |       ➖        | eu.webuild:etrc.1                     | **European Training Record Credential Schema**      |
-| **EU-PoA**                       |        ✅        |       ✅        | eu.europa.ec.eudi:eu-poa.1            | **eIDAS 2.0 Digitized Power of Attorney Schema**    |
-| **EUCC**                         |        ➖        |       ✅        | eu.europa.ec.eudi:eucc.1              | **EU Company Law Directive (EU) 2025/25 Schema**    |
-| **GLN**                          |        ➖        |       ✅        | eu.webuild:gln.1                      | **GS1 Global Location Number Schema**               |
-| **IBAN-OV**                      |        ✅        |       ✅        | eu.webuild:iban-ov.1                  | **EBA Payment Account Ownership Schema**            |
-| **LEI**                          |        ➖        |       ✅        | eu.webuild:lei.1                      | **GLEIF ISO 17442 Legal Entity Identifier Schema**  |
-| **Loyalty-Card**                 |        ✅        |       ➖        | eu.webuild:loyalty.1                  | **Operator Passenger Benefit Schema**               |
-| **Microcredential**              |        ✅        |       ➖        | eu.europa.ec.eudi:microcredential.1   | **European Learning Model (ELM) Schema**            |
-| **Ownership**                    |        ➖        |       ✅        | eu.webuild:ownership-share.1          | **National Business Register Shareholder Schema**   |
-| **Payment-Terms**                |        ➖        |       ✅        | eu.webuild:payment-terms.1            | **W3C Business Financial Conditions Schema**        |
-| **PID**                          |        ✅        |       ➖        | eu.europa.ec.eudi:pid.1               | **eIDAS 2.0 Personal Identification Data Schema**   |
-| **PoA-PoX**                      |        ✅        |       ✅        | eu.europa.ec.eudi:poa-pox.1           | **ISO 29115 Delegation & Representation Schema**    |
-| **PWN**                          |        ✅        |       ➖        | eu.europa.ec.eudi:pwn.1               | **EU Posted Worker Notification Schema**            |
-| **Residence**                    |        ✅        |       ➖        | eu.webuild:residence-cor.1            | **Tax Authority Certificate of Residence Schema**   |
-| **SCA-Card-DPC**                 |        ✅        |       ➖        | eu.webuild:sca-card-dpc.1             | **ETSI TS 119 412 Payment Card SUA Schema**         |
-| **SCA-IBAN**                     |        ✅        |       ➖        | eu.webuild:sca-iban.1                 | **ETSI TS 119 412 Bank Account SUA Schema**         |
-| **SCA-User**                     |        ✅        |       ➖        | eu.webuild:sca-user.1                 | **PSD2 Strong Customer Authentication Schema**      |
-| **Site**                         |        ➖        |       ✅        | eu.webuild:site-location.1            | **Corporate Physical Asset Directory Schema**       |
-| **Social-Security-Contribution** |        ➖        |       ✅        | eu.europa.ec.eudi:social-security.1   | **National Social Security Attestation Schema**     |
-| **Student**                      |        ✅        |       ➖        | eu.europa.ec.eudi:student-card.1      | **European Student Card Initiative (ESCI) Schema**  |
-| **TaxID**                        |        ✅        |       ✅        | eu.webuild:taxid.1                    | **TIN (Tax Identification Number) Schema**          |
-| **UBO**                          |        ➖        |       ✅        | eu.europa.ec.eudi:ubo.1               | **EU AMLD Beneficial Ownership Register Schema**    |
-| **VAT-ID**                       |        ➖        |       ✅        | eu.webuild:vat-id.1                   | **VIES (VAT Information Exchange System) Schema**   |
-| **Verified-Skill**               |        ✅        |       ➖        | eu.europa.ec.eudi:verified-skill.1    | **Europass Digital Credentials (EDC) Schema**       |
-
-*Use case: `<UseCaseID>` · Completed by: `<name>` · Date: `<date>`*
 
 #### Role-specific provisioning guidance
 
@@ -416,7 +365,6 @@ all other self attested
 ##### Prepare proof request (RP)
 
 Import the schema files from the table into your EBW, then build the request yourself or use the matching `*.dcql.standard.json` file.
-
 
 ### Stage 9 – MVP interoperability execution
 

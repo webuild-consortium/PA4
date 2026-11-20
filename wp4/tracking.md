@@ -1,31 +1,33 @@
-# WP4 Tracking – Operating Concept
+# Tracking – Operating Concept
 
 **Purpose:** Define how UseCases manages generic onboarding guidance, scenario-specific requirements and evidence-based MVP execution tracking.
 
 ## Document architecture
 
-| Document                               | Owner                                                   | Scope | Copies                                                                      |
-|----------------------------------------|---------------------------------------------------------|---|-----------------------------------------------------------------------------|
-| `WP4_Tracking.md`                      | WP4                                                     | Methodology, roles, stage definitions, governance | One                                                                         |
-| `wp4/WP4_Onboarding.md`                | WP4                                                     | Generic procedures, ITB, trust registration, conformance and prerequisite provisioning | One                                                                         |
-| `wp4/WP4_Tracker_TEMPLATE.md`          | WP4; generic template                                   | Scenario requirements and partner-specific status, evidence and MVP execution | Generic Template |
-| `MVP_PA3_Tracker_Partnername_Roles.md` | Tracker configured for PA3; configured by use-case lead | Scenario requirements and partner-specific status, evidence and MVP execution | One template baseline for use cases ; mayn copies per scenario/partner/role |
+| Document                   | Owner                                                   | Scope | Copies                                                                      |
+|----------------------------|---------------------------------------------------------|---|-----------------------------------------------------------------------------|
+| `wp4/tracking.md`          | WP4                                                     | Methodology, roles, stage definitions, governance | One                                                                         |
+| `wp4/readme.md`            | WP4                                                     | Generic procedures, ITB, trust registration, conformance and prerequisite provisioning | One                                                                         |
+| `wp4/tracking_template.md` | WP4; generic template                                   | Scenario requirements and partner-specific status, evidence and MVP execution | Generic Template |
 
-**Separation of concerns:** Onboarding describes **how**; the approved scenario tracker specifies **what** is required; partner copies record **actual execution**. No partner-specific progress or MVP test results belong in the generic documents.
+**Separation of concerns:** 
+- Onboarding describes **how**; 
+- the scenario tracker specifies **what** is required; partner copies record **actual execution**. 
+- No partner-specific progress or MVP test results belong in the generic documents.
 
 ## Nine-stage model
 
 | Phase                                          | Stage | Activity                                    | Output in tracker                         |
-|------------------------------------------------|---:|---------------------------------------------|-------------------------------------------|
-| Identification and Wallet Setup                | 1 | Role identification                         | Confirmed business and technical roles    |
-| Identification and Wallet Setup                | 2 | Wallet initialization and deployment        | Wallet inventory and operational evidence |
-| ITB Onboarding and Basic Conformance           | 3 | ITB onboarding                              | Access confirmation                       |
-| ITB Onboarding and Basic Conformance           | 4 | ITB Basic Conformance (CS-01, CS-02)        | Applicable test cases and results         |
-| Trust and Role-Specific Conformance            | 5 | WEBUILD Trust List Registration             | Applicable registrations/certificates     |
-| Trust and Role-Specific Conformance            | 6 | Trust conformance (CS-Trust)                | Selected cases and results                |
-| Trust and Role-Specific Conformance            | 7 | Role-specific conformance                   | Selected CS-Issuer, CS-Signature, etc.    |
-| Prerequisites Provisioning and MVP Execution   | 8 | Role-specific prerequisite provisioning     | Credentials, schemas, DCQL, test data     |
-| Prerequisites Provisioning and MVP Execution   | 9 | MVP interoperability execution and sign-off | Test runs, evidence, defects, approval    |
+|------------------------------------------------|-------|---------------------------------------------|-------------------------------------------|
+| Identification and Wallet Setup                | 1     | Role identification                         | Confirmed business and technical roles    |
+| Identification and Wallet Setup                | 2     | Wallet initialization and deployment        | Wallet inventory and operational evidence |
+| ITB Onboarding and Basic Conformance           | 3     | ITB onboarding                              | Access confirmation                       |
+| ITB Onboarding and Basic Conformance           | 4     | ITB Basic Conformance (CS-01, CS-02)        | Applicable test cases and results         |
+| Trust and Role-Specific Conformance            | 5     | WEBUILD Trust List Registration             | Applicable registrations/certificates     |
+| Trust and Role-Specific Conformance            | 6     | Trust conformance (CS-Trust)                | Selected cases and results                |
+| Trust and Role-Specific Conformance            | 7     | Role-specific conformance                   | Selected CS-Issuer, CS-Signature, etc.    |
+| Prerequisites Provisioning and MVP Execution   | 8     | Role-specific prerequisite provisioning     | Credentials, schemas, DCQL, test data     |
+| Prerequisites Provisioning and MVP Execution   | 9     | MVP interoperability execution and sign-off | Test runs, evidence, defects, approval    |
 
 **Execution dependencies:** Stage numbers establish a consistent reporting structure, not a strictly sequential timeline. Credentials and trust prerequisites may need to be prepared before a later-numbered stage is formally reached. The use-case lead approves dependencies and any exceptions.
 
