@@ -6,17 +6,17 @@
 
 ## 1. Reference documents
 
-| Document                                   | Purpose                                                                                                                            | Status |
-|-------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|---|
-| [WP4_Tracking.md](wp4/WP4_Tracking.md)                          | Explains the WP4 MVP tracking methodology, responsibilities, and progress reporting.                                               | WIP |
-| [WP4_Onboarding.md](wp4/WP4_Onboarding.md)                       | Generic onboarding guidance: wallet setup, ITB onboarding, conformance testing, trust registration, and prerequisite provisioning. | WIP |
+| Document                                                                                           | Purpose                                                                                                                            | Status |
+|----------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|---|
+| [tracking.md](wp4/tracking.md)                                                                     | Explains the WP4 MVP tracking methodology, responsibilities, and progress reporting.                                               | WIP |
+| [onboarding.md](wp4/readme.md)                                                                     | Generic onboarding guidance: wallet setup, ITB onboarding, conformance testing, trust registration, and prerequisite provisioning. | WIP |
 | [MVP_PA4_Scenario2_Template_Partnername_Roles.md](MVP_BU1_Scenario1_Template_Partnername_Roles.md) | Template for recording PA4 partner roles, requirements, progress, evidence, and test results.           | Final (source-reported; file path to verify) |
 
 ## 2. How to get started
 
 ### A. Onboard and prepare the wallets
 
-1. Read the [WP4 Onboarding Process](wp4/WP4_Onboarding.md).
+1. Read the [onboarding.md](wp4/readme.md)
 2. Review the PA4-specific conformance requirements once the canonical BU1 specification is confirmed.
 3. Identify participating partners and confirm their business and technical roles (for example, Buyer / Verifier or Supplier / Holder / Issuer).
 4. Initialize and configure the required wallets in accordance with the generic onboarding guidance and the BU1 scenario requirements.
