@@ -115,6 +115,8 @@ Two paths for onboarding: 1) KYS & KYC (BU1 / PA3) have been completed, so Buyer
 
 **Objective:** Prepare credential schemas and DCQL proof requests for the attestations that the scenario requires the Verifier to check. The wallet column identifies the credential's target wallet, not necessarily the Verifier's software environment.
 
+If in 8.1 option 1 without onboarding is chosen than for PA4 scenario 2 only 8.2.10 & 8.2.11  are required. Ambition is however to be finally able to query all as well. 
+
 | ID     | Credential    | Wallet  | Verifier action                              | Source / issuer reference | Status | Date | Evidence / dependency |
 |--------|---------------|---------|----------------------------------------------|---------------------------|--------|------|-----------------------|
 | 8.2.1  | PID           | EUDI    | Import schema; configure DCQL proof request  | [EUDI PID issuer]         | ⚪      |      |                       |
@@ -127,7 +129,7 @@ Two paths for onboarding: 1) KYS & KYC (BU1 / PA3) have been completed, so Buyer
 | 8.2.8  | PaymentTerms  | EBW     | Import schema; configure DCQL proof request  | Company wallet            | ⚪      |      |                       |
 | 8.2.9  | IBAN-OV       | EBW     | Import schema; configure DCQL proof request  | [Bank issuer]             | ⚪      |      |                       |
 | 8.2.10 | eInvoice      | EBW     | Import schema; configure DCQL proof request  | Company wallet            | ⚪      |      |                       |
-| 8.2.10 | eReceipt      | EBW     | Import schema; configure DCQL proof request  | Company wallet            | ⚪      |      |                       |
+| 8.2.11 | eReceipt      | EBW     | Import schema; configure DCQL proof request  | Company wallet            | ⚪      |      |                       |
 
 ## Stage 8.3 – Issuer: Credential Issuance Configuration
 
