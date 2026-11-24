@@ -97,6 +97,8 @@ Follow the generic Stage 5 instructions in `WP4_Onboarding.md`. The detailed PA3
 
 **Objective:** Obtain or self-issue required credentials and make them available in the appropriate wallet.
 
+Two paths for onboarding: 1) KYS & KYC (BU1 / PA3) have been completed, so Buyer and Seller are whitelisted on a trust list and have each other's IBAN and EBW connectivity data in their ERP or 2) attestations are being checked for KYS & KYC and need to be available in the wallet: 
+
 | ID     | Credential     | Wallet  | Holder action                   | Source / issuer reference | Status | Date | Evidence / dependency |
 |--------|----------------|---------|---------------------------------|--------------------------|--------|---|---|
 | 8.1.1  | PID            | EUDI    | Obtain credential               | [EUDI PID issuer]        | ⚪      |  | |
