@@ -159,7 +159,8 @@ If in 8.1 option 1 without onboarding is chosen than for PA4 scenario 2 only 8.1
 | Step 5 (optional) | eInvoice validation: The buyer validates the received eInvoice.                                                                              | Buyer / Verifier         | ⚪       |      |The eInvoice passes the applicable format, integrity, authenticity and required-data checks. |
 | Step 6  | Internal system validation: The buyer validates the eInvoice against internal business and financial systems (e.g., SAP or non-SAP systems). | Buyer / ERP System       | ⚪       |      |Invoice data is successfully matched against the relevant internal records, and the validation result is recorded. |
 | Step 7  | Settlement initiation: The buyer initiates the invoice settlement process.                                                                   | Buyer / Financial System | ⚪       |      |The approved invoice is transferred to the payment process, and settlement initiation is confirmed. |
-| Step 8 | e-receipt -> issued & received
+| Step 8 | notification payment executed (mocked as we are payment rail agnotisc)
+| Step 9 | e-receipt -> issued & received
 
 ## 9.2. Indirect case
 
@@ -172,7 +173,8 @@ If in 8.1 option 1 without onboarding is chosen than for PA4 scenario 2 only 8.1
 | Step 5  | eInvoice validation: The buyer validates the received eInvoice.                                                                                | Buyer / Verifier         | ⚪      |      |The eInvoice passes the applicable format, integrity, authenticity and required-data checks. |
 | Step 6  | Internal system validation: The buyer validates the eInvoice against internal business and financial systems (e.g., SAP or non-SAP systems).   | Buyer / ERP System       | ⚪      |      |Invoice data is successfully matched against the relevant internal records, and the validation result is recorded. |
 | Step 7  | Settlement initiation: The buyer initiates the invoice settlement process.                                                                     | Buyer / Financial System | ⚪      |      |The approved invoice is transferred to the payment process, and settlement initiation is confirmed. |
-| Step 8 | e-receipt -> issued & received
+| Step 8 | notification payment executed (mocked as we are payment rail agnotisc)
+| Step 9 | e-receipt -> issued & received
 
 ## Actual MVP Execution Runs
 
