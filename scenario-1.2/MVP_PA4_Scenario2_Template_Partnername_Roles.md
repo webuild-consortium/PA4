@@ -135,6 +135,8 @@ If in 8.1 option 1 without onboarding is chosen than for PA4 scenario 2 only 8.2
 
 **Objective:** Configure schemas, test data and issuance capabilities for credentials that the partner is authorized and required to issue. PID, EBWOID and EUCC issuance is applicable only to designated issuers; do not assume that a partner can issue these credentials.
 
+If in 8.1 option 1 without onboarding is chosen than for PA4 scenario 2 only 8.1.5  & 8.1.6 and a white list/concept for incoming data (e.g SC5 scope) needs to be created as well (buyer needs to recognise the seller as well).
+
 | ID    | Credential    | Wallet | Issuer action | Source / issuer reference             | Status |  Date | Evidence / dependency |
 |-------|---------------|---------------|---------------|---------------------------------------|--------|---|---|
 | 8.3.1 | CompanyInfo   | EBW    | Self-issue    | Company wallet ; configure test data  | ⚪      |          | |
