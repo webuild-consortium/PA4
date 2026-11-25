@@ -2,6 +2,15 @@
 
 The Seller requests payment first. The Authorised Person pays either by card through the EUDI Wallet, or by IBAN transfer from the Buyer EBW. On the card rail the PSP performs SCA against the wallet and checks the PoA mandate against the Buyer EBW. On the IBAN rail the Buyer Bank validates a token and, for high-value transactions, checks the SR and PoA mandate. After settlement the Seller delivers the eInvoice and the eReceipt. Overview and shared context: [repository README](../README.md).
 
+## Onboarding and tracker baseline
+
+[pa4-scenario-1.1-onboarding.md](pa4-scenario-1.1-onboarding.md) is the onboarding baseline for the Scenario 1.1 pilot (Cyclades Fast Ferries and travel agencies): roles, wallets, registrations, conformance blocks, credentials, MVP test steps, open questions and issues. It covers two variants, each with a payment flow figure:
+
+| Variant | Payment                              | Figure                                                                          |
+| ------- | ------------------------------------ | ------------------------------------------------------------------------------- |
+| 1.1a    | Account-to-account payment via PISP  | [pa4-scenario-1-1a-account-payment-pisp.png](images/pa4-scenario-1-1a-account-payment-pisp.png) |
+| 1.1b    | Corporate card payment via PSP       | [pa4-scenario-1-1b-card-payment-psp.png](images/pa4-scenario-1-1b-card-payment-psp.png)         |
+
 ## Steps
 
 | Step | Name                               | What happens                                                                                                                                                                                                                                                                    |
