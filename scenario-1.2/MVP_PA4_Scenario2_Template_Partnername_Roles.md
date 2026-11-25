@@ -1,6 +1,6 @@
-# MVP PA4 Scenario21 – Scenario Tracker Baseline
+# MVP PA4 Scenario2 – Scenario Tracker Baseline
 
-**Purpose:** Use-case-lead working baseline for PA4 Scenario2. Copy and approve scenario-specific requirements before creating a partner/technical-role tracker. Based on `WP4_Tracker_TEMPLATE.md`
+**Purpose:** Use-case-lead working baseline for PA4 Scenario2. Copy and approve scenario-specific requirements before creating a partner/technical-role tracker. Based on [Tracking_template.md](../wp4/Tracking_template.md)
 
 **Approval:** ❔ Not approved · **Progress:** No partner execution evidence was supplied. All execution statuses are ⚪ Not started; applicability and proposed test cases remain ❔ To confirm.
 
