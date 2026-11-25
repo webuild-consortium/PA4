@@ -12,8 +12,8 @@
 | Use case / scenario        | PA4_Scenario2                  |
 | Partner                    | <Business Partner Name>        |
 | Partner owner / contact    | <Contact Name>                 |                
-| Business roles             | Seller or Buyer                |
-| Technical roles            | Holder+Issuer or Verifier (RP) |
+| Business roles             | Seller           or Buyer      or Provider           |
+| Technical roles            | Holder+Issuer    or Verifier (RP)  or Issuer         |
 | Baseline                   | baseline                       |
 | Last update                | date                           |
 | Overall status             | ⚪                              |
