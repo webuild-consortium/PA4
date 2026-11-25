@@ -1,6 +1,6 @@
 # Tracking Template – Scenario Requirements and Partner Execution
 
-**Usage:** Copy this template first to an approved scenario baseline, then create a partner-specific copy for each partner/role combination. The use-case lead defines requirements; partners update actual progress. Generic procedures are maintained in [`WP4_Onboarding.md`](readme.md).
+**Usage:** Copy this template to your use case's own repository, first as an approved scenario baseline, then as a partner-specific copy for each partner/role combination. The use-case lead defines requirements; partners update actual progress. Generic procedures are maintained in the [WP4 onboarding guide](https://github.com/webuild-consortium/wp4-architecture/blob/main/onboarding/Onboarding.md).
 
 **Statuses:** ⚪ Not started · 🟡 In progress · ✅ Done · 🔴 Blocked · ➖ N/A · ❔ To confirm. **Test outcomes:** Not run / Pass / Fail / Blocked / Retest pending.
 
@@ -17,12 +17,12 @@
 | Last updated               | `<YYYY-MM-DD>`                  |
 | Overall status             | ⚪                               |
 
-## Wallet inventory (availabe wallets use case specifics)
+## Wallet inventory (available wallets, use case specific)
 
 | Wallet| Wallet type / purpose                                          | MVP or MVP+ | Provider / version                | Scenario / partner / role | Status | Evidence |
 |-------|----------------------------------------------------------------|-------------|-----------------------------------|---------------------------|--------|----------|
 | EBW   | EBW for legal-entity workflows                                 | MVP         | <to be filled by use case>        | Business/Technical roles  | ❔      |          |
-| EUDI  | EUDI Wallet for legal representative to obtain EBWOID& & EUCC  | MVP         | <to be filled by use case>        | Business/Technical roles  | ❔      |          |
+| EUDI  | EUDI Wallet for legal representative to obtain EBWOID & EUCC   | MVP         | <to be filled by use case>        | Business/Technical roles  | ❔      |          |
 
 
 ## Stage 1 – Role identification
@@ -43,7 +43,7 @@
 | ID | Requirement | Status | Date | Evidence |
 |---|---|---|---|---|
 | 3.1 | ITB portal access activated | ⚪ | | |
-| 3.2 | Joined `#wp4-testing` and reviewed guidance | ⚪ | | |
+| 3.2 | Joined `#itb-support` and reviewed the ITB user guide | ⚪ | | |
 
 ## Stage 4 – ITB Basic Conformance
 
@@ -56,7 +56,7 @@
 
 ## Stage 5 – WEBUILD Trust List Registration
 
-Refer to the role-specific registries, Access/Registration Certificate requirements and Holder exception in `WP4_Onboarding.md` Stage 5.
+Refer to the role-specific registration guidance in Stage 5 of the [WP4 onboarding guide](https://github.com/webuild-consortium/wp4-architecture/blob/main/onboarding/Onboarding.md).
 
 | ID | Role / credential type | Registration / certificate requirement                        | Required? | Status | Owner | Date | Registry / evidence / N/A reason |
 |---|---|---------------------------------------------------------------|---|---|---|---|---|
@@ -81,7 +81,7 @@ Refer to the role-specific registries, Access/Registration Certificate requireme
 
 ## Stage 8 – Role-specific prerequisite provisioning
 
-**Use-case lead:** Define the required credentials and attestation types. Holder obtains credentials; Verifier imports schemas and prepares DCQL; Issuer configures schemas, test data and issuance. See generic Stage 8 for PID, QEAA, EAA, EBWOID, EUCC and Self-EAA instructions.
+**Use-case lead:** Define the required credentials and attestation types. Holder obtains credentials; Verifier imports schemas and prepares DCQL; Issuer configures schemas, test data and issuance. See Stage 8 of the [WP4 onboarding guide](https://github.com/webuild-consortium/wp4-architecture/blob/main/onboarding/Onboarding.md) for PID, QEAA, EAA, EBWOID, EUCC and Self-EAA instructions.
 
 | ID | Role | Credential / prerequisite | Requirement (obtain / schema / DCQL / issue) | Required? | Status | Owner | Date | Evidence / dependency |
 |---|---|---|---|---|---|---|---|---|
