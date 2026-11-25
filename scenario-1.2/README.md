@@ -1,6 +1,10 @@
 # Scenario 1.2: Upfront invoice, IBAN payment
 
-The eInvoice is already in the Buyer EBW when the flow starts. The Authorised Person initiates an IBAN transfer from the Buyer EBW, which hands the payment to the Buyer Bank with a token. The bank validates the token without an SCA prompt. For a standard transaction it checks the token authorisation; for a high-value transaction it checks the SR and PoA mandate against the Buyer EBW. After settlement the Seller issues the eReceipt. Overview and shared context: [repository README](../README.md).
+Overview Use Case and Scenario: [PA4 SC1.2 eInvoicing payment and eReceipt issuance – account payment](https://prod1-plate-attachments.s3.amazonaws.com/attachments/5548e27bf9/we-build-use-case-map-v2-5.html#/PA4-S1.2)
+
+The eInvoice is already in the Buyer EBW (European Business Wallet) when the flow starts. The authorised Person initiates an IBAN (International Bank Account Number) transfer from the Buyer EBW, which hands the payment to the Buyer Bank with a token (What token? JWT Jason Web Token? signed by EBW) The bank validates the token without an SCA [RB Strong Customer Authentication](https://github.com/webuild-consortium/webuild-attestation-rulebooks-catalog/tree/main/rulebooks/rb-sca-iban) prompt. For a standard transaction it checks the token authorisation; for a high-value transaction it checks the SR [Signatory Rightes no rulebook available yet] and PoA [RB Power of Attorney](https://github.com/webuild-consortium/webuild-attestation-rulebooks-catalog/tree/main/rulebooks/rb-poa-pox) mandate against the Buyer EBW. After settlement the Seller issues the eReceipt. Overview and shared context: [repository README](../README.md).
+
+
 
 ## Steps
 
