@@ -7,8 +7,8 @@ Each partner maintains its own tracker, while this README provides the consolida
 
 ## 2. Getting Started
 
-1. **Review generic guidelines:** Read [WP4/README.md](Wp4/README.md) for the common onboarding and tracking process.
-2. **Review scenario requirements:** Check [Scenario 5 Template](MVP_PA4_Scenario2_Template_Partnername_Roles.md) for applicable roles, prerequisites, mandatory stages, and evidence requirements.
+1. **Review generic guidelines:** Read [WP4/README.md](../wp4/readme.md) for the common onboarding and tracking process.
+2. **Review scenario requirements:** Check [Scenario 2 Template](MVP_PA4_Scenario2_Template_Partnername_Roles.md) for applicable roles, prerequisites, mandatory stages, and evidence requirements.
 3. **Create your partner tracker:** Copy `MVP_PA4_Scenario2_Template_Partnername_Roles.md` and rename it according to your organization and technical roles.
 4. **Register your tracker:** Add it to the Results Tracking table below, including owner, last update, and status.
 5. **Complete Stages 1–8:** Execute applicable preparation activities and document status, evidence, and open issues in your tracker.

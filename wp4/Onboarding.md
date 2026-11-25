@@ -28,7 +28,7 @@
 
 **Actions**
 
-1. Choose your wallet from the [WEBUILD WP4 Wallets Directory](https://webuild-consortium.github.io/wp4-wallets-group/), or deploy your own WEBUILD-conformant business wallet.
+1. Choose your wallet from the [WEBUILD WP4 Wallets Directory]([https://webuild-consortium.github.io/wp4-wallets-group/](https://wallets.webuildconsortium.eu/)), or deploy your own WEBUILD-conformant business wallet.
 
 | Wallet type                          | Needed when                                          | Directory filter                              | 
 |:-------------------------------------|:-----------------------------------------------------|:----------------------------------------------|
@@ -180,7 +180,7 @@ Pure **Holders** (natural persons using EUDI mobile wallets, or businesses using
 
 ### Stage 6 – Trust conformance (CS-Trust)
 
-**Goal:** Demonstrate the applicable trust-framework integration using the ITB. The generic reference covers wallet trust and, where relevant, Wallet Instance Attestation ([CS-01, CS-02, CS-04](https://github.com/webuild-consortium/wp4-architecture/blob/main/conformance-specs/README.md)). Baseline trust validation is being specified in CS-018 (pre-flight).
+**Goal:** Demonstrate the applicable trust-framework integration using the ITB. The generic reference covers wallet trust and, where relevant, Wallet Unit Attestation ([CS-01, CS-02, CS-04](https://github.com/webuild-consortium/wp4-architecture/blob/main/conformance-specs/README.md)). Baseline trust validation is being specified in CS-018 (pre-flight).
 
 **Applicability:** Defined by the use-case lead for each technical role and wallet implementation. The business-wallet validation specification is marked **to be confirmed** in the source guidance.
 
@@ -246,17 +246,21 @@ Rulebook catalog: [webuild-attestation-rulebooks-catalog](https://github.com/web
 ##### How to obtain
 
 1. **Prepare attributes:** see the mandatory attributes in the [PID Rulebook, section 3.2](https://github.com/webuild-consortium/webuild-attestation-rulebooks-catalog/blob/main/rulebooks/rb-pid/README.md#32-mandatory-attributes) (e.g. `family_name`, `given_name`, `birth_date`).
-2. **Choose a generic PID issuer supporting multiple countries:**
+2. **Choose a PID issuer:**
+   a. choose a **predefined** test PID Issuer ( if your use case defined one)
+   b. choose a **generic** PID Test Issuers or a **country** PID issuer (according to your use case) from the [List of PID issuers](https://github.com/webuild-consortium/wp4-pid-ebwoid-group/blob/main/List%20of%20issuers.md#pid-issuers), maintained by the PID/EBWOID group. It includes country issuers and generic test issuers supporting multiple countries. Note that some test issuers are not registered in the WE BUILD trusted lists.
 
-| PID issuer                   | Location                                                                  | Remarks                                                                  |
-|:-----------------------------|:--------------------------------------------------------------------------|:-------------------------------------------------------------------------|
-Use a PID test issuer from the [List of PID issuers](https://github.com/webuild-consortium/wp4-pid-ebwoid-group/blob/main/List%20of%20issuers.md#pid-issuers), maintained by the PID/EBWOID group. It includes country issuers and generic test issuers supporting multiple countries. Note that some test issuers are not registered in the WE BUILD trusted lists.
+There are several ways to obtain the PID Attestation, depending on the issuer and supported issuance flow. **Please refer to the respective issuer's instructions for the applicable process.**
+**Option 1 – Via the Issuer Service**
+1. **Fill in** the required data fields.
+2. **Accept in wallet:** scan the QR code with your mobile EUDI Wallet and accept.
+**Option 2 – Directly via the  Wallet**
+Initiate the credential issuance process directly from the Wallet, following the supported issuer flow.
+**Option 3 – Via a Federated Account**
+Use a supported federated account to authenticate and initiate the credential issuance process, according to the issuer's requirements.
 
-3. **Fill in** the required data fields.
-4. **Accept in wallet:** scan the QR code with your mobile EUDI Wallet and accept.
 
 ##### Prepare proof request (RP)
-
 * Import `PID.schema.json` into your EBW (or ask your wallet provider to enable it).
 * Build the request yourself, or use `PID.dcql.standard.json`. Baseline test: `urn:eu.europa.ec.eudi:pid:1` with `family_name`.
 
@@ -276,15 +280,22 @@ Use a PID test issuer from the [List of PID issuers](https://github.com/webuild-
 ##### How to obtain
 
 1. **Get authorized-person data:** look up the legal representative (name, surname, birthdate, location) in public registers.
-2. **Choose an EBWOID issuer** from the [List of EBWOID issuers](https://github.com/webuild-consortium/wp4-pid-ebwoid-group/blob/main/List%20of%20issuers.md#ebwoid-issuers), maintained by the PID/EBWOID group. It includes country issuers and generic test issuers supporting multiple countries.
+2. **Choose an EBWOID issuer**
+   a. choose a **predefined** test EBWOID Issuer ( if your use case defined one)
+   b. choose a **generic** EBWOID Issuers or a **country** Issuers (according to your use case) from the [List of EBWOID issuers](https://github.com/webuild-consortium/wp4-pid-ebwoid-group/blob/main/List%20of%20issuers.md#ebwoid-issuers), maintained by the PID/EBWOID group. It includes country issuers and generic test issuers supporting multiple countries.
 
-3. **Open the issuer portal and select** *EBWOID Attestation*.
-4. **Identify the company:** search for and select it.
-5. **Scan and present PID:** use your EUDI Wallet (with the PID from 8.1) to scan the QR code and authorize.
-6. **Claim:** copy the Credential Offer link and paste it into your company EBW.
+There are several ways to obtain the EBWOID Attestation, depending on the issuer and supported issuance flow. **Please refer to the respective issuer's instructions for the applicable process.**
+
+**Option 1 – Via the Issuer Service**
+1. **Access the issuer service and select the company:** the company for which the EBWOID will be selected
+2. **Verify the legal representative:** Use the EUDI Wallet (with the PID obtained in Section 8.1) to verify the identity of the company's legal representative.
+3. **Claim the credential** : the issuer generate the offer and this can be take it over to the company business wallet manually, semi-manual or automatic depends on the company policy and issuer process.
+**Option 2 – Directly via the Business Wallet**
+Initiate the credential issuance process directly from the Business Wallet, following the supported issuer flow.
+**Option 3 – Via a Federated Account**
+Use a supported federated account to authenticate and initiate the credential issuance process, according to the issuer's requirements.
 
 ##### Prepare proof request (RP)
-
 * Import `EBWOID.schema.json`; use `EBWOID.dcql.standard.json` or build your own.
 
 ---
@@ -299,11 +310,18 @@ Use a PID test issuer from the [List of PID issuers](https://github.com/webuild-
 
 1. **Initiate issuance:** An EBWOID is required.
 2. **Choose a generic EUCC issuer supporting multiple countries:**
-   [Bundesanzeiger Attested Issuance Page](https://eida-issuer.spherity.dev/attested-issuance/eucc). 
+   [Bundesanzeiger Attested Issuance Page](https://eida-issuer.spherity.dev/attested-issuance/eucc).
 
-3. **Request proof:** copy the generated presentation request.
-4. **Present EBWOID:** paste the request into your company EBW, review the requested attributes, present.
-5. **Claim:** Return to the Spherity page, copy the **EUCC Credential Offer** link, accept it in your company EBW.
+There are several ways to obtain the EUCC Attestation, depending on the issuer and supported issuance flow. **Please refer to the respective issuer's instructions for the applicable process.**
+
+**Option 1 – Via the Issuer Service**
+1. **Request proof & Present EBWOID :** this can be done manually, semi-manual or automatic depends on the company policy and issuer process
+2. **Claim the credential** : the issuer generate the offer and this can be take it over to the company business wallet manually, semi-manual or automatic depends on the company policy and issuer process
+**Option 2 – Directly via the Business Wallet**
+Initiate the credential issuance process directly from the Business Wallet, following the supported issuer flow.
+**Option 3 – Via a Federated Account**
+Use a supported federated account to authenticate and initiate the credential issuance process, according to the issuer's requirements.
+
 
 ##### Prepare proof request (RP)
 
