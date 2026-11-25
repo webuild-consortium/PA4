@@ -4,13 +4,15 @@
 
 | Date | Author | Change | Baseline version |
 |---|---|---|---|
-| 2026&#8209;11&#8209;25 | Nikolaos Triantafyllou (UAegean), Lal Chandran (iGrant.io) | Baseline drafted from the PA4 flow redesign, pilot deck and payment diagrams | 0.1 |
+| 2026&#8209;11&#8209;25 | Nikolaos&nbsp;Triantafyllou&nbsp;(UAegean)<br>Lal&nbsp;Chandran&nbsp;(iGrant.io) | Baseline drafted from the PA4 flow redesign, pilot deck and payment diagrams | 0.1 |
 
 **Use case / scenario:** PA4, Scenario 1.1 (deferred invoice). Variant 1.1a: account-to-account payment via PISP. Variant 1.1b: corporate card payment via PSP.
 
 **Purpose:** Scenario baseline for onboarding the PA4 Scenario 1.1 partners. It states **what** is required for this scenario (roles, wallets, registrations, conformance blocks, credentials and MVP steps). **How** to do each step is described in the generic [WP4 onboarding guide](https://github.com/webuild-consortium/wp4-architecture/blob/main/onboarding/Onboarding.md); this document links to it rather than copying it. Each partner and role combination copies this baseline into its own tracker and records actual progress there, as described in the [WP4 onboarding README](https://github.com/webuild-consortium/wp4-architecture/blob/main/onboarding/README.md).
 
-**Statuses:** ⚪ Not started · 🟡 In progress · ✅ Done · 🔴 Blocked · ➖ N/A · ❔ To confirm. **Test outcomes:** Not run / Pass / Fail / Blocked / Retest pending.
+**Statuses:** ⚪ Not started · 🟡 In progress · ✅ Done · 🔴 Blocked · ➖ N/A · ❔ To confirm.
+
+**Test outcomes:** Not run / Pass / Fail / Blocked / Retest pending.
 
 | Field | Value |
 |---|---|
@@ -139,10 +141,10 @@ PA2 parties (Worldline, Air Bank, OP Bank) follow the PA2 onboarding; they are l
 
 | ID | Requirement | Status | Owner | Evidence |
 |---|---|---|---|---|
-| 1.1 | Business roles and variants confirmed (1.1a, 1.1b) | 🟡 | Use-case leads | Pilot deck, slides 7 and 8 |
-| 1.2 | Technical roles and wallet assignment confirmed per party | ❔ | Use-case leads | This table |
-| 1.3 | Travel agency for 1.1b named | ❔ | Lal Chandran | |
-| 1.4 | EBW provider for CFF confirmed | ❔ | Use-case leads | |
+| 1.1 | Business roles and variants confirmed (1.1a, 1.1b) | ✅ | Use-case leads | Pilot deck, slides 7 and 8 |
+| 1.2 | Technical roles and wallet assignment confirmed per party | ✅ | Use-case leads | This table |
+| 1.3 | Travel agency for 1.1b named | ✅ | Lal Chandran | |
+| 1.4 | EBW provider for CFF confirmed | ✅ | Use-case leads | |
 
 **Exit criterion:** Roles and wallet requirements confirmed by both use-case leads.
 
@@ -154,10 +156,10 @@ Procedure: [generic Stage 2](https://github.com/webuild-consortium/wp4-architect
 
 | Wallet | Wallet type / purpose | MVP or MVP+ | Provider / version | Party / role | Status | Evidence |
 |---|---|---|---|---|---|---|
-| W1 | EBW for CFF (seller): holder, verifier and issuer of business transaction credentials | MVP | ❔ | CFF / Holder + Verifier + Issuer | ❔ | |
-| W2 | EBW for the travel agency (buyer) | MVP | iGrant.io EBW, version ❔ | Travel Agency / Holder + Issuer + Verifier | ⚪ | |
-| W3 | EUDI Wallet for the authorised representative: PID, SCA attestation, SR / PoA, payment SCA | MVP | iGrant.io EUDI Wallet, version ❔ | Authorised representative / Holder | ⚪ | |
-| W4 | EUDI Wallet for each company's legal representative, to obtain EBWOID and EUCC | MVP | iGrant.io EUDI Wallet ❔ | CFF and Travel Agency legal representatives / Holder | ⚪ | May be the same person and wallet as W3 for the agency |
+| W1 | EBW for CFF (seller): holder, verifier and issuer of business transaction credentials | MVP | CFF (UAegean) | CFF / Holder + Verifier + Issuer | ✅ | |
+| W2 | EBW for the travel agency (buyer) | MVP | iGrant.io EBW, version ❔ | Travel Agency / Holder + Issuer + Verifier | ✅ | |
+| W3 | EUDI Wallet for the authorised representative: PID, SCA attestation, SR / PoA, payment SCA | MVP | iGrant.io EUDI Wallet, version ❔ | Authorised representative / Holder | ✅ | |
+| W4 | EUDI Wallet for each company's legal representative, to obtain EBWOID and EUCC | MVP | iGrant.io EUDI Wallet ❔ | CFF and Travel Agency legal representatives / Holder | ✅ | May be the same person and wallet as W3 for the agency |
 
 | ID | Wallet | Requirement | Status | Date | Evidence |
 |---|---|---|---|---|---|
