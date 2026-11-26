@@ -7,9 +7,9 @@ Each partner maintains its own tracker, while this README provides the consolida
 
 ## 2. Getting Started
 
-1. **Review generic guidelines:** Read [WP4/README.md](../wp4/readme.md) for the common onboarding and tracking process.
-2. **Review scenario requirements:** Check [Scenario 2 Template](MVP_PA4_Scenario2_Template_Partnername_Roles.md) for applicable roles, prerequisites, mandatory stages, and evidence requirements.
-3. **Create your partner tracker:** Copy `MVP_PA4_Scenario2_Template_Partnername_Roles.md` and rename it according to your organization and technical roles.
+1. **Review generic guidelines:** Read [WP4/README.md](https://github.com/webuild-consortium/wp4-architecture/blob/main/onboarding/README.md) for the common onboarding and tracking process.
+2. **Review scenario requirements:** Check [Scenario Template](pa4-scenario-1.2-onboarding.md) for applicable roles, prerequisites, mandatory stages, and evidence requirements.
+3. **Create your partner tracker:** Copy [Scenario Template](pa4-scenario-1.2-onboarding.md)` and rename it according to your organization, business and  technical roles.
 4. **Register your tracker:** Add it to the Results Tracking table below, including owner, last update, and status.
 5. **Complete Stages 1–8:** Execute applicable preparation activities and document status, evidence, and open issues in your tracker.
 
@@ -25,7 +25,7 @@ Each partner maintains its own tracker, while this README provides the consolida
 
 | Company        | Business role | Technical role(s) | Partner tracker                                                               | Current status |
 |----------------|---------------|-------------------|-------------------------------------------------------------------------------|---|
-| Bosch          | Buyer         | Verifier          | [MVP_PA4_Bosch_Buyer+Verifier.md](MVP_PA4_Bosch_Buyer+Verifier.md)            | To confirm |
-| SBB            | Seller        | Holder + Issuer   | [MVP_PA4_SBB_Supplier+Holder+Issuer.md](MVP_PA4_SBB_Supplier+Holder+Issuer.md) | To confirm |
-| Freelancer(DE) | Seller        | Holder           | [MVP_PA4_Freelance+Holder+Issuer.md](MVP_PA4_Freelancer_Seller+Holder+Issuer.md) | To confirm |
-| Datev          | Provider(Intermediary)        | Issuer   | [MVP_PA4_Provider+Issuer.md](MVP_PA4_Datev_Provider_Issuer.md) | To confirm |
+| Bosch          | Buyer         | Verifier          | [PA4_Bosch_Buyer+Verifier.md](MVP_PA4_Bosch_Buyer+Verifier.md)            | To confirm |
+| SBB            | Seller        | Holder + Issuer   | [PA4_SBB_Supplier+Holder+Issuer.md](MVP_PA4_SBB_Supplier+Holder+Issuer.md) | To confirm |
+| Freelancer(DE) | Seller        | Holder           | [PA4_Freelance+Holder+Issuer.md](MVP_PA4_Freelancer_Seller+Holder+Issuer.md) | To confirm |
+| Datev          | Provider(Intermediary)        | Issuer   | [PA4_Provider+Issuer.md](MVP_PA4_Datev_Provider_Issuer.md) | To confirm |

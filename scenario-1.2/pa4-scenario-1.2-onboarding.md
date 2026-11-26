@@ -1,6 +1,13 @@
-# MVP PA4 Scenario2 – Scenario Tracker Baseline
+# PA4 Scenario 1.2: Onboarding and Tracker Baseline
 
-**Purpose:** Use-case-lead working baseline for PA4 Scenario2. Copy and approve scenario-specific requirements before creating a partner/technical-role tracker. Based on [Tracking_template.md](../wp4/Tracking_template.md)
+## Change log
+
+| Date | Author | Change | Baseline version |
+|---|---|---|---|
+| 2026&#8209;11&#8209;20 | Florin (Bosch) | Baseline drafted from the PA4 Scenario 1.2 | 0.1 |
+| 2026&#8209;11&#8209;23 | Florin (Bosch)& Miriam (Procivis) | Extension Trust & MVP Tests (Stage 9) | 0.2 |
+
+**Purpose:** Use-case-lead working baseline for PA4 Scenario2. Copy and approve scenario-specific requirements before creating a partner/technical-role tracker. Based on [Tracking_template.md](https://github.com/webuild-consortium/wp4-architecture/blob/main/onboarding/webuild-scenario-tracking-template.md)
 
 **Approval:** ❔ Not approved · **Progress:** No partner execution evidence was supplied. All execution statuses are ⚪ Not started; applicability and proposed test cases remain ❔ To confirm.
 
