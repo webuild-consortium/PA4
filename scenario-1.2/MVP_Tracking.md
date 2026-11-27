@@ -1,5 +1,12 @@
 # MVP BU1 – Scenario 2 Tracking
 
+## Change log
+
+| Date | Author | Change | Baseline version |
+|---|---|---|---|
+| 2026&#8209;11&#8209;20 | Florin (Bosch) | Baseline drafted from the PA4 Scenario 1.2 | 0.1 |
+| 2026&#8209;11&#8209;30 | todo Miriam  | fill the list of the partners and roles, generate tracking   | 0.2 |
+
 ## 1. Purpose
 
 Central entry point for scenario onboarding, partner-specific preparation, MVP execution, and results tracking.
@@ -25,7 +32,10 @@ Each partner maintains its own tracker, while this README provides the consolida
 
 | Company        | Business role | Technical role(s) | Partner tracker                                                               | Current status |
 |----------------|---------------|-------------------|-------------------------------------------------------------------------------|---|
-| Bosch          | Buyer         | Verifier          | [PA4_Bosch_Buyer+Verifier.md](MVP_PA4_Bosch_Buyer+Verifier.md)            | To confirm |
-| SBB            | Seller        | Holder + Issuer   | [PA4_SBB_Supplier+Holder+Issuer.md](MVP_PA4_SBB_Supplier+Holder+Issuer.md) | To confirm |
-| Freelancer(DE) | Seller        | Holder           | [PA4_Freelance+Holder+Issuer.md](MVP_PA4_Freelancer_Seller+Holder+Issuer.md) | To confirm |
-| Datev          | Provider(Intermediary)        | Issuer   | [PA4_Provider+Issuer.md](MVP_PA4_Datev_Provider_Issuer.md) | To confirm |
+| Bosch          | Buyer            | Verifier          | [MVP_PA4_Bosch_Buyer+Verifier.md](MVP_PA4_Bosch_Buyer+Verifier.md)            | To confirm |
+| SBB            | Seller           | Holder + Issuer   | [MVP_PA4_SBB_Seller+Holder+Issuer.md](MVP_PA4_SBB_Supplier+Holder+Issuer.md) | To confirm |
+| Freelancer(DE) | Seller           | Holder            | [MVP_PA4_Freelance_Seller+Holder.md](MVP_PA4_Freelancer_Seller+Holder+Issuer.md) | To confirm |
+| Datev          | Seller Provider  | Issuer            | [MVP_PA4_DATEV_Provider+Issuer.md](MVP_PA4_Datev_Provider_Issuer.md)  | To confirm |
+| SageCustomer   | Seller            | Holder            | [MVP_PA4_Customer_Seller+Holder.md](MVP_PA4_Customer_Seller_Holder.md)  | To confirm |
+| Sage          | Seller Provider   | Issuer            | [MVP_PA4_SAGE_Provider+Issuer.md](MVP_PA4_Datev_Provider_Issuer.md) | To confirm |
+| Sage          | Intermediary      | Verifier            | [MVP_PA4_SAGE_Intermediady+Berifier.md](MVP_PA4_Intermediary_Verfifier.md) | To confirm |

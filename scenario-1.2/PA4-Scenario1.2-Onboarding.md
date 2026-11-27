@@ -19,8 +19,8 @@
 | Use case / scenario        | PA4_Scenario2                  |
 | Partner                    | <Business Partner Name>        |
 | Partner owner / contact    | <Contact Name>                 |                
-| Business roles             | Seller           or Buyer      or Provider           |
-| Technical roles            | Holder+Issuer    or Verifier (RP)  or Issuer         |
+| Business roles             | 1.Seller        - 2. Seller(no issuer) - 3.Provider - 4.Buyer     - 5.Intermediary  |
+| Technical roles            | 2.Holder+Issuer - 2. Holderr           - 3.Verifier - 4.Verifier  - 5.Verifier      |
 | Baseline                   | baseline                       |
 | Last update                | date                           |
 | Overall status             | ⚪                              |
@@ -28,12 +28,10 @@
 **Copy rule:** For each partner, instantiate `MVP_PA4 Scenario2_<Partner>_<BusinessRole>_<TechnicalRole>.md` for each actual partner/role combination. Retain N/A items with a justification; duplicate per-wallet and per-attestation items as needed.
 
 ## Wallet inventory and proposed roles
-
-| Wallet| Wallet type / purpose                                          | MVP or MVP+ | Provider / version               | Scenario / partner / role  | Status | Evidence |
-|-------|----------------------------------------------------------------|-------------|----------------------------------|----------------------------|--------|----------|
-| EBW   | EBW for legal-entity workflows                                 | MVP         | Procivis EBW ,.....              | Bosch / Buyer / Verifier   | ❔      |          |
-| EUDI  | EUDI Wallet for legal representative to obtain EBWOID& & EUCC  | MVP         | Procivis One Android, D-You,.... | Bosch / Buyer / Verifier   | ❔      |          |
-
+| Wallet| Wallet type / purpose                 | MVP or MVP+ | Provider / version               | Scenario / partner / role |  Status | 
+|-------|---------------------------------------|-------------|----------------------------------|-------------------------|----------|
+| EBW   | EBW for legal-entity workflows        | MVP         | Procivis EBW ,iGrant, credenco   | TBD |  ⚪ | 
+| EUDI  | EUDI Wallet for legal representative  | MVP         | Procivis One, iGrant, credenco,. |TBD |  ⚪ | 
 
 *Source note:** The supplied PA4 Scenario 2 file proposes these wallet/persona combinations; whether separate physical wallet instances are needed and which scenarios require them must be confirmed. The generic template requires a separate row per distinct implementation.
 
